@@ -7,6 +7,7 @@ collision detection, task assignment, and coordination.
 
 import asyncio
 import logging
+import random
 import time
 import uuid
 from dataclasses import dataclass, field
@@ -182,8 +183,9 @@ class RobotFleetSimulator:
             self.robot_positions_history[robot_id] = [position]
         
         # Initialize coordination systems
-        await self.path_planner.initialize(warehouse_layout)
-        await self.communication_system.initialize(list(self.robots.keys()))
+        # Register robots with communication system
+        for robot_id, robot in self.robots.items():
+            self.communication_system.register_robot(robot_id, robot.position[:2])
         
         logger.info(f"Initialized {len(self.robots)} robots in warehouse")
     
@@ -236,6 +238,16 @@ class RobotFleetSimulator:
     def get_robot(self, robot_id: str) -> Optional[RobotState]:
         """Get specific robot by ID"""
         return self.robots.get(robot_id)
+    
+    async def move_robot(self, robot_id: str, target_position: Tuple[float, float, float]) -> bool:
+        """Move a robot to a target position (simplified for testing)"""
+        robot = self.get_robot(robot_id)
+        if robot:
+            robot.update_position(target_position)
+            robot.target_position = target_position
+            self.communication_system.update_robot_position(robot_id, target_position[:2])
+            return True
+        return False
     
     async def get_robot_observation(self, robot_id: str) -> Dict[str, Any]:
         """Get local observation for a specific robot"""
@@ -555,7 +567,7 @@ class RobotFleetSimulator:
                     self.robot_positions_history[robot.robot_id][-100:]
             
             # Process pending messages
-            robot.pending_messages = await self.communication_system.get_messages(robot.robot_id)
+            robot.pending_messages = self.communication_system.receive_messages(robot.robot_id)
             
             # Reset error status if robots are no longer colliding
             if robot.status == RobotStatus.ERROR:

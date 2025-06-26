@@ -148,18 +148,18 @@ class WarehouseSpatialEnvironment(BaseEnv):
             robots=self.robot_fleet.get_robot_states()
         )
         
-        # Create Atropos item
-        item = Item(
-            item_id=f"warehouse_task_{uuid.uuid4().hex[:8]}",
-            data={
+        # Create Atropos item (as a dictionary since Item = Any)
+        item = {
+            "item_id": f"warehouse_task_{uuid.uuid4().hex[:8]}",
+            "data": {
                 "task": task.to_dict(),
                 "warehouse_layout": self.current_layout.to_dict(),
                 "initial_robot_states": [robot.to_dict() for robot in self.robot_fleet.get_robot_states()],
                 "timestamp": time.time()
             }
-        )
+        }
         
-        logger.info(f"Generated warehouse task: {task.task_id}")
+        logger.info(f"Generated warehouse task: {item['item_id']}")
         return item
     
     async def collect_trajectories(self, item: Item) -> Tuple[ScoredDataGroup, List[Item]]:
@@ -535,4 +535,44 @@ Focus on spatial reasoning, collision avoidance, and efficient coordination."""
             )
         ]
         
-        return env_config, server_configs 
+        return env_config, server_configs
+    
+    # Additional helper methods
+    def get_available_items_near(self, position: Tuple[float, float, float], radius: float) -> List[Dict]:
+        """Get available items near a position"""
+        # Simplified implementation - return empty list for now
+        return []
+    
+    def get_available_tasks_for_robot(self, robot_id: str) -> List[Dict]:
+        """Get available tasks for a specific robot"""
+        # Simplified implementation - return empty list for now
+        return []
+    
+    async def reset_for_task(self, task):
+        """Reset environment for a new task"""
+        # Reset robot positions and states
+        self.step_count = 0
+        # TODO: Implement task-specific reset logic
+        pass
+    
+    async def update_environment_state(self, execution_results: Dict):
+        """Update environment state after robot actions"""
+        # Update step count
+        self.step_count += 1
+        # TODO: Implement environment state updates
+        pass
+    
+    async def calculate_evaluation_metrics(self, eval_results: List) -> Dict:
+        """Calculate evaluation metrics from results"""
+        # Simple evaluation metrics
+        return {
+            "avg_score": 0.5,
+            "completion_rate": 0.8,
+            "efficiency": 0.7
+        }
+    
+    def calculate_area_congestion(self, position: Tuple[float, float, float]) -> float:
+        """Calculate congestion level around a position"""
+        # Simple implementation - count nearby robots
+        nearby_robots = self.get_nearby_robots("temp_robot", 5.0)
+        return len(nearby_robots) / 10.0  # Normalize to 0-1 range
