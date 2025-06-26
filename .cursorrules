@@ -1,0 +1,231 @@
+# Cursor Rules for Scientific Research Standards
+
+## CLOUD-ONLY INFRASTRUCTURE REQUIREMENT
+**CRITICAL**: This project operates EXCLUSIVELY in cloud environments (Google Cloud, AWS, Azure). 
+- ❌ NO physical laboratory components
+- ❌ NO local hardware dependencies  
+- ❌ NO physical robots or equipment
+- ✅ Cloud-based virtual simulations ONLY
+- ✅ API-driven services and compute
+- ✅ Scalable cloud infrastructure
+- ✅ Virtual warehouse environments
+
+All spatial reasoning, robot coordination, and AI experiments are conducted in virtual cloud environments using APIs and cloud compute resources.
+
+## Language and Communication Standards
+
+### PROHIBITED HYPERBOLIC LANGUAGE
+- ❌ "Groundbreaking", "Breakthrough", "Revolutionary", "Game-changing"
+- ❌ "First of its kind", "Unprecedented", "Cutting-edge"
+- ❌ "State-of-the-art", "Best-in-class", "World-class"
+- ❌ "Incredible", "Amazing", "Fantastic", "Incredible results"
+- ❌ "Massive", "Huge", "Tremendous" (unless referring to actual scale)
+- ❌ "Production-ready", "100% complete", "Fully functional" (without verification)
+
+### REQUIRED SCIENTIFIC LANGUAGE
+- ✅ "Preliminary results suggest..."
+- ✅ "Initial findings indicate..."
+- ✅ "The data shows..."
+- ✅ "Statistical analysis reveals..."
+- ✅ "Compared to baseline performance..."
+- ✅ "Within the scope of this study..."
+- ✅ "Implementation requires further testing..."
+- ✅ "Estimated based on preliminary analysis..."
+
+## VERIFICATION REQUIREMENTS
+
+### MULTI-STAGE VERIFICATION PROCESS
+All claims and implementations must pass through:
+
+1. **AI Assistant Verification**
+   - Code functionality tested
+   - Claims verified against actual implementation
+   - Limitations clearly documented
+   - Test results included
+
+2. **Architect Review**
+   - System design validation
+   - Integration feasibility confirmed
+   - Performance estimates validated
+   - Risk assessment completed
+
+3. **Expert Committee Review**
+   - Independent technical validation
+   - Market assessment verification
+   - Financial projections review
+   - Publication-readiness evaluation
+
+### VERIFICATION DOCUMENTATION REQUIRED
+- ✅ **Test Results**: All code must have passing tests
+- ✅ **Benchmark Data**: Performance claims backed by measurements
+- ✅ **Integration Validation**: Third-party system compatibility confirmed
+- ✅ **Limitation Analysis**: Clear documentation of what doesn't work
+- ✅ **Completion Status**: Honest assessment of implementation percentage
+
+### CLAIMS STANDARDS
+- **Functionality Claims**: Must include test evidence
+- **Performance Claims**: Must include benchmark comparisons
+- **Commercial Claims**: Must include market validation data
+- **Timeline Claims**: Must include risk-adjusted estimates
+- **Financial Claims**: Must include uncertainty ranges
+
+## Experimental Design Standards
+
+### MANDATORY COMPONENTS
+1. **Control Groups**: Every experiment must include appropriate controls
+2. **Baseline Comparisons**: Compare against existing benchmarks
+3. **Statistical Significance**: p-values, confidence intervals, effect sizes
+4. **Multiple Hypothesis Testing**: Bonferroni correction or similar
+5. **Reproducibility**: Clear methodology, random seeds, environment specs
+
+### EXPERIMENTAL CONTROLS REQUIRED
+- Random movement agents (baseline)
+- Rule-based navigation agents
+- Existing RL navigation baselines
+- Human performance benchmarks
+- No-intervention control
+
+### STATISTICAL RIGOR
+- Effect size calculations (Cohen's d, eta-squared)
+- Confidence intervals (95% CI)
+- Multiple comparison corrections
+- Power analysis for sample size
+- Normality tests and non-parametric alternatives
+
+## Research Methodology Standards
+
+### HYPOTHESIS FORMULATION
+- Must be specific and testable
+- Include null and alternative hypotheses
+- Define success criteria quantitatively
+- Specify effect size expectations
+
+### DATA COLLECTION
+- Pre-register experimental design
+- Document all data collection procedures
+- Include data quality checks
+- Maintain audit trails
+
+### ANALYSIS FRAMEWORK
+1. Descriptive statistics
+2. Inferential statistics
+3. Effect size calculations
+4. Confidence intervals
+5. Multiple comparison corrections
+6. Sensitivity analysis
+7. Robustness checks
+
+## Code Quality Standards
+
+### DOCUMENTATION REQUIREMENTS
+- Clear method documentation
+- Parameter descriptions
+- Return value specifications
+- Usage examples
+- Dependencies listed
+
+### TESTING REQUIREMENTS
+- Unit tests for all functions
+- Integration tests for workflows
+- Statistical test validation
+- Edge case handling
+- Error handling
+
+### REPRODUCIBILITY STANDARDS
+- Random seed specification
+- Environment versioning
+- Dependency pinning
+- Data versioning
+- Clear execution instructions
+
+## Evaluation Metrics Standards
+
+### SPATIAL REASONING METRICS
+1. Path efficiency (actual vs optimal path length)
+2. Obstacle avoidance success rate
+3. Navigation time to target
+4. Spatial memory accuracy
+5. Collision frequency
+6. Exploration coverage
+7. Task completion rate
+
+### COMPARISON FRAMEWORKS
+- Compare against published benchmarks
+- Include human performance baselines
+- Use established evaluation datasets
+- Report relative performance improvements
+
+## Reporting Standards
+
+### RESULTS PRESENTATION
+- Present null results with equal emphasis
+- Include confidence intervals
+- Report effect sizes
+- Show raw data distributions
+- Include statistical test details
+
+### LIMITATIONS SECTION
+- Acknowledge study limitations
+- Discuss generalizability
+- Address potential biases
+- Consider alternative explanations
+- Suggest future research directions
+
+### HONEST STATUS REPORTING
+- **Implementation Status**: Actual percentage complete
+- **Testing Status**: What has/hasn't been tested
+- **Integration Status**: What works/doesn't work with existing systems
+- **Performance Status**: Measured vs estimated metrics
+- **Commercial Status**: Proof of concept vs deployment ready
+
+## Quality Assurance
+
+### PEER REVIEW CHECKLIST
+- [ ] Clear research question
+- [ ] Appropriate methodology
+- [ ] Statistical rigor
+- [ ] Proper controls
+- [ ] Reproducible results
+- [ ] Honest limitations discussion
+- [ ] Appropriate conclusions
+- [ ] Verified functionality claims
+- [ ] Expert committee approval
+
+### CONTINUOUS IMPROVEMENT
+- Regular methodology reviews
+- Statistical consultation when needed
+- Peer feedback integration
+- Literature review updates
+- Method refinement based on results
+
+## Implementation Guidelines
+
+### WHEN WRITING CODE
+- Include statistical validation
+- Add proper error handling
+- Document assumptions
+- Include sensitivity analysis
+- Provide reproducibility instructions
+- Test all functionality before claiming completion
+
+### WHEN ANALYZING RESULTS
+- Start with descriptive statistics
+- Use appropriate statistical tests
+- Report effect sizes
+- Include confidence intervals
+- Consider multiple comparisons
+
+### WHEN PRESENTING FINDINGS
+- Use precise language
+- Include statistical context
+- Acknowledge limitations
+- Suggest next steps
+- Avoid overinterpretation
+- Distinguish between tested and untested claims
+
+### VERIFICATION BEFORE SUBMISSION
+1. **Code Review**: All code tested and functional
+2. **Claim Verification**: All claims backed by evidence
+3. **Expert Validation**: Independent technical review
+4. **Risk Assessment**: Honest evaluation of limitations
+5. **Committee Approval**: Multi-expert sign-off required

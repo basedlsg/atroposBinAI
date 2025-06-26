@@ -1,0 +1,425 @@
+{
+  "total_tests": 18,
+  "successful_tests": 18,
+  "success_rate": 1.0,
+  "average_response_time": 0.33154087596469456,
+  "median_response_time": 0.30988609790802,
+  "min_response_time": 0.27014803886413574,
+  "max_response_time": 0.6023449897766113,
+  "average_improvement": 0.6060030081272225,
+  "median_improvement": 0.5664580735810283,
+  "scenario_results": {
+    "Simple Navigation": [
+      {
+        "scenario": "Simple Navigation",
+        "agent_id": 1,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.3145418167114258,
+        "success": true,
+        "distance_before": 8.85912908499246,
+        "distance_after": 8.320187876507342,
+        "improvement": 0.5389412084851184,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Simple Navigation",
+        "agent_id": 2,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.31331300735473633,
+        "success": true,
+        "distance_before": 8.009411074906057,
+        "distance_after": 7.482508187298059,
+        "improvement": 0.5269028876079975,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Simple Navigation",
+        "agent_id": 3,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.3064591884613037,
+        "success": true,
+        "distance_before": 9.29533382119767,
+        "distance_after": 8.774027055850475,
+        "improvement": 0.5213067653471946,
+        "api_response": "MOVE_FORWARD"
+      }
+    ],
+    "Obstacle Avoidance": [
+      {
+        "scenario": "Obstacle Avoidance",
+        "agent_id": 1,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.28354382514953613,
+        "success": true,
+        "distance_before": 9.931577924427012,
+        "distance_after": 8.932562248870603,
+        "improvement": 0.999015675556409,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Obstacle Avoidance",
+        "agent_id": 2,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.3261690139770508,
+        "success": true,
+        "distance_before": 9.852015533265275,
+        "distance_after": 8.85344023174693,
+        "improvement": 0.9985753015183452,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Obstacle Avoidance",
+        "agent_id": 3,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.6023449897766113,
+        "success": true,
+        "distance_before": 10.176524316591118,
+        "distance_after": 9.177489158916535,
+        "improvement": 0.9990351576745837,
+        "api_response": "MOVE_FORWARD"
+      }
+    ],
+    "3D Pathfinding": [
+      {
+        "scenario": "3D Pathfinding",
+        "agent_id": 1,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.27014803886413574,
+        "success": true,
+        "distance_before": 14.232811483858518,
+        "distance_after": 13.702786449723801,
+        "improvement": 0.5300250341347166,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "3D Pathfinding",
+        "agent_id": 2,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.30608487129211426,
+        "success": true,
+        "distance_before": 13.89549009353717,
+        "distance_after": 13.344986250625322,
+        "improvement": 0.5505038429118478,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "3D Pathfinding",
+        "agent_id": 3,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.3057267665863037,
+        "success": true,
+        "distance_before": 13.953809021599731,
+        "distance_after": 13.387928856355533,
+        "improvement": 0.5658801652441987,
+        "api_response": "MOVE_FORWARD"
+      }
+    ],
+    "Complex Environment": [
+      {
+        "scenario": "Complex Environment",
+        "agent_id": 1,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.35792112350463867,
+        "success": true,
+        "distance_before": 25.794382149413217,
+        "distance_after": 25.22734616749536,
+        "improvement": 0.5670359819178579,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Complex Environment",
+        "agent_id": 2,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.29631876945495605,
+        "success": true,
+        "distance_before": 25.978558168897507,
+        "distance_after": 25.422123722472534,
+        "improvement": 0.5564344464249729,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Complex Environment",
+        "agent_id": 3,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.2973780632019043,
+        "success": true,
+        "distance_before": 26.04148048922935,
+        "distance_after": 25.469411485120347,
+        "improvement": 0.5720690041090037,
+        "api_response": "MOVE_FORWARD"
+      }
+    ],
+    "Edge Case - Near Target": [
+      {
+        "scenario": "Edge Case - Near Target",
+        "agent_id": 1,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.2775888442993164,
+        "success": true,
+        "distance_before": 2.25820426009615,
+        "distance_after": 2.0941690921778946,
+        "improvement": 0.16403516791825545,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Edge Case - Near Target",
+        "agent_id": 2,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.30388784408569336,
+        "success": true,
+        "distance_before": 1.7422875277712238,
+        "distance_after": 1.6166360228983232,
+        "improvement": 0.12565150487290055,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Edge Case - Near Target",
+        "agent_id": 3,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.4102191925048828,
+        "success": true,
+        "distance_before": 1.9662133922653735,
+        "distance_after": 1.3824114683219402,
+        "improvement": 0.5838019239434333,
+        "api_response": "MOVE_FORWARD"
+      }
+    ],
+    "Maze Navigation": [
+      {
+        "scenario": "Maze Navigation",
+        "agent_id": 1,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.3203163146972656,
+        "success": true,
+        "distance_before": 17.121105514299867,
+        "distance_after": 16.413460389783484,
+        "improvement": 0.7076451245163824,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Maze Navigation",
+        "agent_id": 2,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.3144712448120117,
+        "success": true,
+        "distance_before": 17.124432195211487,
+        "distance_after": 16.411132620132435,
+        "improvement": 0.7132995750790521,
+        "api_response": "MOVE_FORWARD"
+      },
+      {
+        "scenario": "Maze Navigation",
+        "agent_id": 3,
+        "decision": "MOVE_FORWARD",
+        "response_time": 0.36130285263061523,
+        "success": true,
+        "distance_before": 16.78231879131506,
+        "distance_after": 16.094423412287323,
+        "improvement": 0.6878953790277365,
+        "api_response": "MOVE_FORWARD"
+      }
+    ]
+  },
+  "detailed_results": [
+    {
+      "scenario": "Simple Navigation",
+      "agent_id": 1,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3145418167114258,
+      "success": true,
+      "distance_before": 8.85912908499246,
+      "distance_after": 8.320187876507342,
+      "improvement": 0.5389412084851184,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Simple Navigation",
+      "agent_id": 2,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.31331300735473633,
+      "success": true,
+      "distance_before": 8.009411074906057,
+      "distance_after": 7.482508187298059,
+      "improvement": 0.5269028876079975,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Simple Navigation",
+      "agent_id": 3,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3064591884613037,
+      "success": true,
+      "distance_before": 9.29533382119767,
+      "distance_after": 8.774027055850475,
+      "improvement": 0.5213067653471946,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Obstacle Avoidance",
+      "agent_id": 1,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.28354382514953613,
+      "success": true,
+      "distance_before": 9.931577924427012,
+      "distance_after": 8.932562248870603,
+      "improvement": 0.999015675556409,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Obstacle Avoidance",
+      "agent_id": 2,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3261690139770508,
+      "success": true,
+      "distance_before": 9.852015533265275,
+      "distance_after": 8.85344023174693,
+      "improvement": 0.9985753015183452,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Obstacle Avoidance",
+      "agent_id": 3,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.6023449897766113,
+      "success": true,
+      "distance_before": 10.176524316591118,
+      "distance_after": 9.177489158916535,
+      "improvement": 0.9990351576745837,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "3D Pathfinding",
+      "agent_id": 1,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.27014803886413574,
+      "success": true,
+      "distance_before": 14.232811483858518,
+      "distance_after": 13.702786449723801,
+      "improvement": 0.5300250341347166,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "3D Pathfinding",
+      "agent_id": 2,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.30608487129211426,
+      "success": true,
+      "distance_before": 13.89549009353717,
+      "distance_after": 13.344986250625322,
+      "improvement": 0.5505038429118478,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "3D Pathfinding",
+      "agent_id": 3,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3057267665863037,
+      "success": true,
+      "distance_before": 13.953809021599731,
+      "distance_after": 13.387928856355533,
+      "improvement": 0.5658801652441987,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Complex Environment",
+      "agent_id": 1,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.35792112350463867,
+      "success": true,
+      "distance_before": 25.794382149413217,
+      "distance_after": 25.22734616749536,
+      "improvement": 0.5670359819178579,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Complex Environment",
+      "agent_id": 2,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.29631876945495605,
+      "success": true,
+      "distance_before": 25.978558168897507,
+      "distance_after": 25.422123722472534,
+      "improvement": 0.5564344464249729,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Complex Environment",
+      "agent_id": 3,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.2973780632019043,
+      "success": true,
+      "distance_before": 26.04148048922935,
+      "distance_after": 25.469411485120347,
+      "improvement": 0.5720690041090037,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Edge Case - Near Target",
+      "agent_id": 1,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.2775888442993164,
+      "success": true,
+      "distance_before": 2.25820426009615,
+      "distance_after": 2.0941690921778946,
+      "improvement": 0.16403516791825545,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Edge Case - Near Target",
+      "agent_id": 2,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.30388784408569336,
+      "success": true,
+      "distance_before": 1.7422875277712238,
+      "distance_after": 1.6166360228983232,
+      "improvement": 0.12565150487290055,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Edge Case - Near Target",
+      "agent_id": 3,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.4102191925048828,
+      "success": true,
+      "distance_before": 1.9662133922653735,
+      "distance_after": 1.3824114683219402,
+      "improvement": 0.5838019239434333,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Maze Navigation",
+      "agent_id": 1,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3203163146972656,
+      "success": true,
+      "distance_before": 17.121105514299867,
+      "distance_after": 16.413460389783484,
+      "improvement": 0.7076451245163824,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Maze Navigation",
+      "agent_id": 2,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3144712448120117,
+      "success": true,
+      "distance_before": 17.124432195211487,
+      "distance_after": 16.411132620132435,
+      "improvement": 0.7132995750790521,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "scenario": "Maze Navigation",
+      "agent_id": 3,
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.36130285263061523,
+      "success": true,
+      "distance_before": 16.78231879131506,
+      "distance_after": 16.094423412287323,
+      "improvement": 0.6878953790277365,
+      "api_response": "MOVE_FORWARD"
+    }
+  ],
+  "api_key_used": "AIzaSyAqko3NqGS-GtXh...",
+  "test_timestamp": "2025-06-25 19:21:35"
+}

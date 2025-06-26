@@ -652,7 +652,7 @@ class BaseEnv(ABC):
             ):
                 logger.warning(
                     f"Group structure invalid, or token count mismatch (expected {group_size}), "
-                    "or "tokens' key missing. Skipping group: {str(group)[:200]}..."
+                    "or 'tokens' key missing. Skipping group: {str(group)[:200]}..."
                 )
                 continue
 

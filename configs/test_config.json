@@ -1,0 +1,31 @@
+{
+  "experiment_name": "basic_warehouse_test",
+  "description": "Test configuration for spatial reasoning lab",
+  "environment": {
+    "warehouse_width": 30.0,
+    "warehouse_height": 20.0,
+    "num_robots": 3,
+    "num_shelves": 10
+  },
+  "tasks": {
+    "complexity": "easy",
+    "max_duration": 200,
+    "items_per_task": 5,
+    "num_evaluation_tasks": 10
+  },
+  "training": {
+    "num_episodes": 20,
+    "batch_size": 16,
+    "learning_rate": 0.001
+  },
+  "model": {
+    "name": "gpt-4o-mini",
+    "max_tokens": 256,
+    "temperature": 0.7
+  },
+  "infrastructure": {
+    "use_wandb": false,
+    "save_trajectories": true,
+    "output_dir": "results"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "simulation_results": {
+    "total_agents": 2500,
+    "simulation_steps": 15,
+    "successful_instances": 5,
+    "total_runtime_seconds": 813.1367959976196,
+    "avg_happiness": 0.5689422863060494,
+    "total_wealth": 1392220.6356068258,
+    "final_beliefs": {
+      "avg_cooperation": 0.6011533892249022,
+      "avg_innovation": 0.6487488046264602
+    }
+  },
+  "ai_analyses": {
+    "scientist": "Analysis Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01jyfq55saft6v7f6zae2cpagq` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 501173, Requested 162. Please try again in 3m50.6942s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "sociologist": "Analysis Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01jyfq55saft6v7f6zae2cpagq` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 501173, Requested 159. Please try again in 3m50.1708s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "futurist": "Analysis Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01jyfq55saft6v7f6zae2cpagq` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 501172, Requested 161. Please try again in 3m50.5134s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+  },
+  "report_generated_at": "2025-06-24T00:05:43.751042"
+}

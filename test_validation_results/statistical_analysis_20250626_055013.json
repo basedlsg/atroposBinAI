@@ -1,0 +1,1614 @@
+{
+  "experiment_metadata": {
+    "total_conditions": 16,
+    "total_trials": 160,
+    "analysis_timestamp": "2025-06-26T05:50:13.374478",
+    "random_seed": 42
+  },
+  "descriptive_statistics": {
+    "condition_000": {
+      "condition_description": "centralized_3agents_30x20_simple",
+      "n_trials": 10,
+      "coordination_strategy": "centralized",
+      "task_completion_time": {
+        "mean": 20.869340753014836,
+        "std": 3.96093721910244,
+        "min": 14.358209085014417,
+        "max": 29.245743862843092,
+        "median": 21.055292761516046,
+        "confidence_interval_95": [
+          18.035856959143654,
+          23.702824546886017
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.8509936756365809,
+        "std": 0.06629308595292974,
+        "min": 0.7454392507332026,
+        "max": 0.9523262763840211,
+        "median": 0.8519567382593771,
+        "confidence_interval_95": [
+          0.803570458780874,
+          0.8984168924922878
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.1,
+        "std": 0.31622776601683794,
+        "min": "0",
+        "max": "1",
+        "median": 0.0,
+        "confidence_interval_95": [
+          -0.12621571628540987,
+          0.3262157162854099
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.2429587634178189,
+        "std": 0.037799676720970454,
+        "min": 0.17221587230172242,
+        "max": 0.27197827702067096,
+        "median": 0.2632057265581179,
+        "confidence_interval_95": [
+          0.21591850363134601,
+          0.2699990232042918
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.9340586997104048,
+        "std": 0.023051722651180342,
+        "min": 0.9051262418423202,
+        "max": 0.9684530281713664,
+        "median": 0.923014414563392,
+        "confidence_interval_95": [
+          0.9175684907169551,
+          0.9505489087038544
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.8108963120286441,
+        "std": 0.06674738072574281,
+        "min": 0.7184196958923967,
+        "max": 0.8887335945512528,
+        "median": 0.8266982027456343,
+        "confidence_interval_95": [
+          0.763148112269851,
+          0.8586445117874372
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_001": {
+      "condition_description": "centralized_3agents_30x20_medium",
+      "n_trials": 10,
+      "coordination_strategy": "centralized",
+      "task_completion_time": {
+        "mean": 24.64174362541454,
+        "std": 2.8192713536443312,
+        "min": 21.226716593886636,
+        "max": 31.33312299622025,
+        "median": 23.713036729369342,
+        "confidence_interval_95": [
+          22.624958392729972,
+          26.65852885809911
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.8096835839106836,
+        "std": 0.06747814635248947,
+        "min": 0.7040575642754053,
+        "max": 0.8951470121965523,
+        "median": 0.8184982409691021,
+        "confidence_interval_95": [
+          0.7614126259141384,
+          0.8579545419072289
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.9,
+        "std": 0.8755950357709131,
+        "min": "0",
+        "max": "3",
+        "median": 1.0,
+        "confidence_interval_95": [
+          0.27363704431216973,
+          1.5263629556878304
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.22758692451785958,
+        "std": 0.06146193095950546,
+        "min": 0.12841717981419767,
+        "max": 0.2945828123909105,
+        "median": 0.25209266720934803,
+        "confidence_interval_95": [
+          0.1836197077505988,
+          0.27155414128512034
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.8963545966567708,
+        "std": 0.025932084010632805,
+        "min": 0.8524183641297605,
+        "max": 0.9324387301623591,
+        "median": 0.894224085381593,
+        "confidence_interval_95": [
+          0.8778039012730948,
+          0.9149052920404467
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7865832315041705,
+        "std": 0.07225997415049017,
+        "min": 0.7009210737320276,
+        "max": 0.8859903168495868,
+        "median": 0.7825434193518308,
+        "confidence_interval_95": [
+          0.7348915599690785,
+          0.8382749030392626
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_002": {
+      "condition_description": "centralized_3agents_50x30_simple",
+      "n_trials": 10,
+      "coordination_strategy": "centralized",
+      "task_completion_time": {
+        "mean": 31.42714298896894,
+        "std": 4.493699689228592,
+        "min": 24.648115982449664,
+        "max": 40.089062342684926,
+        "median": 30.601589959371452,
+        "confidence_interval_95": [
+          28.212543882841608,
+          34.64174209509627
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.8086522466226629,
+        "std": 0.05278855049490244,
+        "min": 0.7483749413042805,
+        "max": 0.8817296074520351,
+        "median": 0.8028810001635371,
+        "confidence_interval_95": [
+          0.7708895924690202,
+          0.8464149007763055
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.3,
+        "std": 0.6749485577105528,
+        "min": "0",
+        "max": "2",
+        "median": 0.0,
+        "confidence_interval_95": [
+          -0.1828291119451136,
+          0.7828291119451136
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.20673722036864212,
+        "std": 0.07315869527963449,
+        "min": 0.1253529809356481,
+        "max": 0.2956352612502912,
+        "median": 0.18334640609811115,
+        "confidence_interval_95": [
+          0.15440264246725902,
+          0.2590717982700252
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.9443842319250322,
+        "std": 0.02546172690352775,
+        "min": 0.9079682510317585,
+        "max": 0.9809537269485314,
+        "median": 0.9376512121865302,
+        "confidence_interval_95": [
+          0.9261700097462044,
+          0.9625984541038599
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.8103961416998656,
+        "std": 0.06263479654945178,
+        "min": 0.7009061989304093,
+        "max": 0.8954185136797287,
+        "median": 0.8273491388824119,
+        "confidence_interval_95": [
+          0.7655899074330407,
+          0.8552023759666906
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_003": {
+      "condition_description": "centralized_3agents_50x30_medium",
+      "n_trials": 10,
+      "coordination_strategy": "centralized",
+      "task_completion_time": {
+        "mean": 35.05110635915869,
+        "std": 3.1664844482426378,
+        "min": 29.68790920387608,
+        "max": 40.57823577205675,
+        "median": 34.687674816581605,
+        "confidence_interval_95": [
+          32.78593984140364,
+          37.316272876913736
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.8040921725231177,
+        "std": 0.05614405069914804,
+        "min": 0.7221569299342739,
+        "max": 0.8873054873936971,
+        "median": 0.8118665609259341,
+        "confidence_interval_95": [
+          0.7639291381253227,
+          0.8442552069209127
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.7,
+        "std": 0.6749485577105528,
+        "min": "0",
+        "max": "2",
+        "median": 1.0,
+        "confidence_interval_95": [
+          0.21717088805488638,
+          1.1828291119451135
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.17832527435002607,
+        "std": 0.051690382930173355,
+        "min": 0.11697509011175089,
+        "max": 0.2967710109717713,
+        "median": 0.17311067347813247,
+        "confidence_interval_95": [
+          0.14134820194774475,
+          0.2153023467523074
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.8971392682870757,
+        "std": 0.029747782409976564,
+        "min": 0.854335788643184,
+        "max": 0.9447475905964119,
+        "median": 0.8926131687189418,
+        "confidence_interval_95": [
+          0.8758589867022605,
+          0.9184195498718909
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7652116039247695,
+        "std": 0.05035167021187069,
+        "min": 0.7035885279710932,
+        "max": 0.8669098338745798,
+        "median": 0.7753314430797154,
+        "confidence_interval_95": [
+          0.7291921889106604,
+          0.8012310189388786
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_004": {
+      "condition_description": "centralized_5agents_30x20_simple",
+      "n_trials": 10,
+      "coordination_strategy": "centralized",
+      "task_completion_time": {
+        "mean": 22.61529037503059,
+        "std": 3.8739412052130584,
+        "min": 17.836794196105327,
+        "max": 28.418641783586736,
+        "median": 22.265230073321664,
+        "confidence_interval_95": [
+          19.844039780488636,
+          25.386540969572543
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.8364313480895997,
+        "std": 0.049028579086198947,
+        "min": 0.7704146408608517,
+        "max": 0.9266037571356859,
+        "median": 0.8350287567286558,
+        "confidence_interval_95": [
+          0.8013584154494918,
+          0.8715042807297076
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": "0",
+        "max": "0",
+        "median": 0.0,
+        "confidence_interval_95": [
+          0.0,
+          0.0
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.2008755289133443,
+        "std": 0.05937760167228595,
+        "min": 0.11101033156696774,
+        "max": 0.2930631922359119,
+        "median": 0.20572036905190133,
+        "confidence_interval_95": [
+          0.15839935149604972,
+          0.24335170633063885
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.9495570011248942,
+        "std": 0.03304674652504807,
+        "min": 0.9073435992806209,
+        "max": 0.9866718092337304,
+        "median": 0.9622847463554967,
+        "confidence_interval_95": [
+          0.9259167827777548,
+          0.9731972194720335
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7334220228945475,
+        "std": 0.0583630433309487,
+        "min": 0.6450290448246112,
+        "max": 0.8061144787478506,
+        "median": 0.7433546160252253,
+        "confidence_interval_95": [
+          0.6916716167932566,
+          0.7751724289958384
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_005": {
+      "condition_description": "centralized_5agents_30x20_medium",
+      "n_trials": 10,
+      "coordination_strategy": "centralized",
+      "task_completion_time": {
+        "mean": 27.837244443783966,
+        "std": 3.6693263448196514,
+        "min": 23.2466551231601,
+        "max": 34.049701193112355,
+        "median": 27.77715976481651,
+        "confidence_interval_95": [
+          25.212366502692277,
+          30.462122384875656
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.8368083216840076,
+        "std": 0.041740235354897195,
+        "min": 0.7804043128587306,
+        "max": 0.8909528403141177,
+        "median": 0.8295742118257836,
+        "confidence_interval_95": [
+          0.8069491560653033,
+          0.866667487302712
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.8,
+        "std": 0.6324555320336759,
+        "min": "0",
+        "max": "2",
+        "median": 1.0,
+        "confidence_interval_95": [
+          0.3475685674291803,
+          1.2524314325708197
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.21746056078196624,
+        "std": 0.05481342114094608,
+        "min": 0.12686239749554654,
+        "max": 0.2759886052868325,
+        "median": 0.22982162891829755,
+        "confidence_interval_95": [
+          0.1782494014279432,
+          0.25667172013598927
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.9190949617579827,
+        "std": 0.019603426100539022,
+        "min": 0.8878009316848926,
+        "max": 0.9476295649548845,
+        "median": 0.923490720855467,
+        "confidence_interval_95": [
+          0.90507151551593,
+          0.9331184080000353
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7228423182380743,
+        "std": 0.052412007607667566,
+        "min": 0.6520394574542838,
+        "max": 0.7958476629416492,
+        "median": 0.7139496779786748,
+        "confidence_interval_95": [
+          0.6853490266392159,
+          0.7603356098369327
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_006": {
+      "condition_description": "centralized_5agents_50x30_simple",
+      "n_trials": 10,
+      "coordination_strategy": "centralized",
+      "task_completion_time": {
+        "mean": 32.49113876473557,
+        "std": 5.437324084332075,
+        "min": 25.72912689273675,
+        "max": 46.086944068978724,
+        "median": 31.959524771274204,
+        "confidence_interval_95": [
+          28.60151143091189,
+          36.38076609855924
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.8351636625073944,
+        "std": 0.05755169871202713,
+        "min": 0.7448147026056162,
+        "max": 0.9311357912946321,
+        "median": 0.8228239130067274,
+        "confidence_interval_95": [
+          0.7939936573823855,
+          0.8763336676324033
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.4,
+        "std": 0.6992058987801011,
+        "min": "0",
+        "max": "2",
+        "median": 0.0,
+        "confidence_interval_95": [
+          -0.10018176840012938,
+          0.9001817684001294
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.1816684024216054,
+        "std": 0.059106018720390716,
+        "min": 0.11267855748518507,
+        "max": 0.29081410366843097,
+        "median": 0.15609875829278283,
+        "confidence_interval_95": [
+          0.1393865037444978,
+          0.223950301098713
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.9227589674344874,
+        "std": 0.02736278667495893,
+        "min": 0.8867546625691295,
+        "max": 0.9734619449115632,
+        "median": 0.9186256168940654,
+        "confidence_interval_95": [
+          0.9031848090194697,
+          0.942333125849505
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7245452665322529,
+        "std": 0.06425339814192058,
+        "min": 0.6381492428555653,
+        "max": 0.8025096972662236,
+        "median": 0.7255440907146151,
+        "confidence_interval_95": [
+          0.6785811544382117,
+          0.7705093786262942
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_007": {
+      "condition_description": "centralized_5agents_50x30_medium",
+      "n_trials": 10,
+      "coordination_strategy": "centralized",
+      "task_completion_time": {
+        "mean": 38.30016074433384,
+        "std": 5.029332734375791,
+        "min": 30.660184694725473,
+        "max": 45.87008051455695,
+        "median": 39.27619793636545,
+        "confidence_interval_95": [
+          34.702392840284894,
+          41.89792864838278
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.794126708112106,
+        "std": 0.055452812550872,
+        "min": 0.7029179243730608,
+        "max": 0.8836809647471062,
+        "median": 0.790160431733641,
+        "confidence_interval_95": [
+          0.7544581556973627,
+          0.8337952605268492
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.8,
+        "std": 0.9189365834726815,
+        "min": "0",
+        "max": "2",
+        "median": 0.5,
+        "confidence_interval_95": [
+          0.14263236884748687,
+          1.4573676311525132
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.19983850056185648,
+        "std": 0.058899808717947914,
+        "min": 0.10216617053985333,
+        "max": 0.29822588237381675,
+        "median": 0.19711730385173765,
+        "confidence_interval_95": [
+          0.1577041156340802,
+          0.24197288548963275
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.90136646760854,
+        "std": 0.025840589162890983,
+        "min": 0.8694069053954671,
+        "max": 0.9461004173987576,
+        "median": 0.8994402785677751,
+        "confidence_interval_95": [
+          0.8828812236960585,
+          0.9198517115210215
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7482853665152661,
+        "std": 0.04364945746296928,
+        "min": 0.6581996536416759,
+        "max": 0.7955869057943488,
+        "median": 0.760768853264071,
+        "confidence_interval_95": [
+          0.7170604256764868,
+          0.7795103073540455
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_008": {
+      "condition_description": "distributed_3agents_30x20_simple",
+      "n_trials": 10,
+      "coordination_strategy": "distributed",
+      "task_completion_time": {
+        "mean": 22.450168753718277,
+        "std": 4.246719075507149,
+        "min": 17.278239090557697,
+        "max": 28.145683263999175,
+        "median": 21.54408426658246,
+        "confidence_interval_95": [
+          19.41224893526182,
+          25.488088572174732
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.7748051538821485,
+        "std": 0.03952513546438707,
+        "min": 0.712131146421103,
+        "max": 0.8409637338846351,
+        "median": 0.7681424141491331,
+        "confidence_interval_95": [
+          0.7465305752675746,
+          0.8030797324967225
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.5,
+        "std": 0.7071067811865476,
+        "min": "0",
+        "max": "2",
+        "median": 0.0,
+        "confidence_interval_95": [
+          -0.0058337191929827,
+          1.0058337191929827
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.3249340168795646,
+        "std": 0.08639729594041735,
+        "min": 0.20303546834495056,
+        "max": 0.4853392354177272,
+        "median": 0.328396639035708,
+        "confidence_interval_95": [
+          0.26312911456986865,
+          0.3867389191892605
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.8809499395606494,
+        "std": 0.0322329849482109,
+        "min": 0.8378862193843414,
+        "max": 0.9328089043939486,
+        "median": 0.8746293774110887,
+        "confidence_interval_95": [
+          0.8578918511773285,
+          0.9040080279439703
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.8105764004971732,
+        "std": 0.05377502218636454,
+        "min": 0.7240214932903462,
+        "max": 0.8908248920415169,
+        "median": 0.8056435920978677,
+        "confidence_interval_95": [
+          0.772108067006481,
+          0.8490447339878653
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_009": {
+      "condition_description": "distributed_3agents_30x20_medium",
+      "n_trials": 10,
+      "coordination_strategy": "distributed",
+      "task_completion_time": {
+        "mean": 26.909114966519002,
+        "std": 4.366273297753548,
+        "min": 19.55819180247448,
+        "max": 33.4108507688656,
+        "median": 26.87757615318729,
+        "confidence_interval_95": [
+          23.78567120953852,
+          30.032558723499484
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.7530439940898968,
+        "std": 0.0756418135800205,
+        "min": 0.6555215442202247,
+        "max": 0.8448936218453158,
+        "median": 0.7696356562267257,
+        "confidence_interval_95": [
+          0.6989331003639465,
+          0.807154887815847
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 1.2,
+        "std": 0.7888106377466155,
+        "min": "0",
+        "max": "3",
+        "median": 1.0,
+        "confidence_interval_95": [
+          0.6357188627708918,
+          1.764281137229108
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.3345925516285545,
+        "std": 0.08817421390666244,
+        "min": 0.21811721462243353,
+        "max": 0.4777252982862447,
+        "median": 0.34233461985446745,
+        "confidence_interval_95": [
+          0.2715165187803304,
+          0.3976685844767786
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.8770400536231419,
+        "std": 0.0317124176798715,
+        "min": 0.8147002360843387,
+        "max": 0.9145620106770468,
+        "median": 0.8726349911336394,
+        "confidence_interval_95": [
+          0.854354356630259,
+          0.8997257506160247
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7911506402180362,
+        "std": 0.048736222596571475,
+        "min": 0.7136957251835454,
+        "max": 0.887710299961314,
+        "median": 0.7949113055577166,
+        "confidence_interval_95": [
+          0.7562868468117938,
+          0.8260144336242785
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_010": {
+      "condition_description": "distributed_3agents_50x30_simple",
+      "n_trials": 10,
+      "coordination_strategy": "distributed",
+      "task_completion_time": {
+        "mean": 36.892533380362,
+        "std": 3.567923845117108,
+        "min": 31.278113121621345,
+        "max": 41.69054080190528,
+        "median": 36.5698320565131,
+        "confidence_interval_95": [
+          34.34019441771701,
+          39.444872343007
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.7807518973697436,
+        "std": 0.07006531273731026,
+        "min": 0.7013478955951787,
+        "max": 0.899051896633706,
+        "median": 0.7704023538105741,
+        "confidence_interval_95": [
+          0.7306301920328759,
+          0.8308736027066113
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.4,
+        "std": 0.6992058987801011,
+        "min": "0",
+        "max": "2",
+        "median": 0.0,
+        "confidence_interval_95": [
+          -0.10018176840012938,
+          0.9001817684001294
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.34466492524195974,
+        "std": 0.07251954401439685,
+        "min": 0.25549667896674505,
+        "max": 0.4486552176862688,
+        "median": 0.31778198903045507,
+        "confidence_interval_95": [
+          0.29278756861213556,
+          0.3965422818717839
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.8883645308042547,
+        "std": 0.025277384065428347,
+        "min": 0.8636553552220183,
+        "max": 0.9350373293738354,
+        "median": 0.8811209605259416,
+        "confidence_interval_95": [
+          0.8702821795477309,
+          0.9064468820607785
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.8213920372159274,
+        "std": 0.04495436339589414,
+        "min": 0.7384618864362172,
+        "max": 0.8722291177803324,
+        "median": 0.833663066444573,
+        "confidence_interval_95": [
+          0.789233622906365,
+          0.8535504515254897
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_011": {
+      "condition_description": "distributed_3agents_50x30_medium",
+      "n_trials": 10,
+      "coordination_strategy": "distributed",
+      "task_completion_time": {
+        "mean": 41.52332701800073,
+        "std": 5.0752028678339025,
+        "min": 32.04437037860387,
+        "max": 50.23855260051197,
+        "median": 42.89560854454652,
+        "confidence_interval_95": [
+          37.89274559720392,
+          45.15390843879754
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.7623194239589969,
+        "std": 0.06563579333455136,
+        "min": 0.6623068538068815,
+        "max": 0.8446237921623444,
+        "median": 0.7519005022610907,
+        "confidence_interval_95": [
+          0.7153664059171021,
+          0.8092724420008917
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 1.3,
+        "std": 1.3374935098492586,
+        "min": "0",
+        "max": "4",
+        "median": 1.0,
+        "confidence_interval_95": [
+          0.3432147810147492,
+          2.256785218985251
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.3853872490758764,
+        "std": 0.08177914521433911,
+        "min": 0.23238783965007448,
+        "max": 0.49877820809760737,
+        "median": 0.3777901432879233,
+        "confidence_interval_95": [
+          0.32688597278097564,
+          0.44388852537077716
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.8606088687286139,
+        "std": 0.03087383072216364,
+        "min": 0.8104102638622669,
+        "max": 0.9049102086223383,
+        "median": 0.8616569046736091,
+        "confidence_interval_95": [
+          0.8385230607071992,
+          0.8826946767500286
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7773468635239722,
+        "std": 0.057643757584280426,
+        "min": 0.7083339634469454,
+        "max": 0.8758765847411885,
+        "median": 0.7590759755351475,
+        "confidence_interval_95": [
+          0.7361110034489394,
+          0.818582723599005
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_012": {
+      "condition_description": "distributed_5agents_30x20_simple",
+      "n_trials": 10,
+      "coordination_strategy": "distributed",
+      "task_completion_time": {
+        "mean": 22.456772743960066,
+        "std": 2.7954878339048594,
+        "min": 18.138471806692294,
+        "max": 27.353112686949885,
+        "median": 22.618386184694707,
+        "confidence_interval_95": [
+          20.45700121636984,
+          24.456544271550293
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.8177700052835281,
+        "std": 0.06831137540936218,
+        "min": 0.7043719926588887,
+        "max": 0.8949177005763379,
+        "median": 0.8093585948096207,
+        "confidence_interval_95": [
+          0.7689029911268788,
+          0.8666370194401773
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 0.7,
+        "std": 1.0593499054713802,
+        "min": "0",
+        "max": "3",
+        "median": 0.0,
+        "confidence_interval_95": [
+          -0.057813270737046896,
+          1.4578132707370468
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.3806466307649786,
+        "std": 0.07361857507502682,
+        "min": 0.2645699727357067,
+        "max": 0.4737392135691961,
+        "median": 0.3788862523105501,
+        "confidence_interval_95": [
+          0.3279830746760371,
+          0.43331018685392014
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.9060793447833049,
+        "std": 0.030303576439251655,
+        "min": 0.859809202689241,
+        "max": 0.9525737128840714,
+        "median": 0.9028382102371801,
+        "confidence_interval_95": [
+          0.8844014721013407,
+          0.9277572174652691
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7408303370761884,
+        "std": 0.055650713828780694,
+        "min": 0.6504293432715212,
+        "max": 0.8103077490114095,
+        "median": 0.7579901688214052,
+        "confidence_interval_95": [
+          0.7010202146155893,
+          0.7806404595367875
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_013": {
+      "condition_description": "distributed_5agents_30x20_medium",
+      "n_trials": 10,
+      "coordination_strategy": "distributed",
+      "task_completion_time": {
+        "mean": 27.875102838140226,
+        "std": 4.968631466384224,
+        "min": 17.785711419863457,
+        "max": 34.309879210890784,
+        "median": 28.33453564918974,
+        "confidence_interval_95": [
+          24.3207580053513,
+          31.42944767092915
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.7404665230208316,
+        "std": 0.05833903575841513,
+        "min": 0.6510850424291692,
+        "max": 0.8075537825364302,
+        "median": 0.7574867486178808,
+        "confidence_interval_95": [
+          0.6987332909023486,
+          0.7821997551393146
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 1.1,
+        "std": 0.8755950357709131,
+        "min": "0",
+        "max": "2",
+        "median": 1.0,
+        "confidence_interval_95": [
+          0.4736370443121698,
+          1.7263629556878304
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.36910185275628526,
+        "std": 0.08138020134978492,
+        "min": 0.20347121498756476,
+        "max": 0.4590611799170691,
+        "median": 0.40184978292787327,
+        "confidence_interval_95": [
+          0.310885963709995,
+          0.42731774180257553
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.8669444565834459,
+        "std": 0.03567244439275762,
+        "min": 0.8122574227244761,
+        "max": 0.9172667457732896,
+        "median": 0.8647239136971567,
+        "confidence_interval_95": [
+          0.8414259271336016,
+          0.8924629860332901
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7179601350843748,
+        "std": 0.05859678695959682,
+        "min": 0.638121454792467,
+        "max": 0.8167865306840377,
+        "median": 0.7189664801290687,
+        "confidence_interval_95": [
+          0.6760425188640997,
+          0.75987775130465
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_014": {
+      "condition_description": "distributed_5agents_50x30_simple",
+      "n_trials": 10,
+      "coordination_strategy": "distributed",
+      "task_completion_time": {
+        "mean": 28.809770856194547,
+        "std": 8.921839126996899,
+        "min": 10.485594069813446,
+        "max": 40.452634530442545,
+        "median": 32.26934660839195,
+        "confidence_interval_95": [
+          22.427471622580335,
+          35.19207008980876
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.7976058510923426,
+        "std": 0.06125434105807521,
+        "min": 0.7229736738512923,
+        "max": 0.8804377262138864,
+        "median": 0.7858428940750228,
+        "confidence_interval_95": [
+          0.7537871351946834,
+          0.8414245669900018
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 1.0,
+        "std": 1.4907119849998598,
+        "min": "0",
+        "max": "4",
+        "median": 0.0,
+        "confidence_interval_95": [
+          -0.0663911133092363,
+          2.066391113309236
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.32472485752029884,
+        "std": 0.07228696362449075,
+        "min": 0.24360095228609557,
+        "max": 0.4379235463905693,
+        "median": 0.3063046906421437,
+        "confidence_interval_95": [
+          0.27301387887859146,
+          0.3764358361620062
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.8788827187416877,
+        "std": 0.03907710183749079,
+        "min": 0.8420078912128365,
+        "max": 0.94879078616059,
+        "median": 0.8651033420883454,
+        "confidence_interval_95": [
+          0.8509286440762289,
+          0.9068367934071464
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7276963516865753,
+        "std": 0.03884556775146125,
+        "min": 0.6637492411372707,
+        "max": 0.7925516043044367,
+        "median": 0.7245393333874747,
+        "confidence_interval_95": [
+          0.6999079065285295,
+          0.7554847968446211
+        ],
+        "sample_size": 10
+      }
+    },
+    "condition_015": {
+      "condition_description": "distributed_5agents_50x30_medium",
+      "n_trials": 10,
+      "coordination_strategy": "distributed",
+      "task_completion_time": {
+        "mean": 45.49521480957632,
+        "std": 13.163996015171223,
+        "min": 17.203629320914803,
+        "max": 63.595054072964366,
+        "median": 43.66824317359229,
+        "confidence_interval_95": [
+          36.0782593497206,
+          54.91217026943204
+        ],
+        "sample_size": 10
+      },
+      "path_efficiency": {
+        "mean": 0.777811957803802,
+        "std": 0.061507564490578114,
+        "min": 0.6535291999023549,
+        "max": 0.8499977187743132,
+        "median": 0.7858484392689797,
+        "confidence_interval_95": [
+          0.7338120967749437,
+          0.8218118188326602
+        ],
+        "sample_size": 10
+      },
+      "collision_count": {
+        "mean": 1.0,
+        "std": 0.6666666666666666,
+        "min": "0",
+        "max": "2",
+        "median": 1.0,
+        "confidence_interval_95": [
+          0.5230953960077734,
+          1.4769046039922267
+        ],
+        "sample_size": 10
+      },
+      "coordination_overhead": {
+        "mean": 0.3538235512964194,
+        "std": 0.10615307322720581,
+        "min": 0.21503230264544915,
+        "max": 0.49863831838729894,
+        "median": 0.3565801666625498,
+        "confidence_interval_95": [
+          0.2778862172714518,
+          0.429760885321387
+        ],
+        "sample_size": 10
+      },
+      "success_rate": {
+        "mean": 0.8648313834533958,
+        "std": 0.03606947338368018,
+        "min": 0.8058072964334463,
+        "max": 0.919054413091974,
+        "median": 0.85912632861774,
+        "confidence_interval_95": [
+          0.8390288365730176,
+          0.890633930333774
+        ],
+        "sample_size": 10
+      },
+      "agent_utilization": {
+        "mean": 0.7308460831524142,
+        "std": 0.06605158707645041,
+        "min": 0.6519363956551575,
+        "max": 0.8115013245146633,
+        "median": 0.720378214848172,
+        "confidence_interval_95": [
+          0.6835956241857852,
+          0.7780965421190431
+        ],
+        "sample_size": 10
+      }
+    }
+  },
+  "baseline_comparisons": {
+    "random": {
+      "centralized": {
+        "task_completion_time": {
+          "strategy_mean": 29.15414600680512,
+          "baseline_mean": 37.91471463989356,
+          "improvement_percent": -23.105985937899266,
+          "p_value": 2.2653376557744206e-16,
+          "effect_size": -1.1191576060380743,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "path_efficiency": {
+          "strategy_mean": 0.8219939648857689,
+          "baseline_mean": 0.2903382534982636,
+          "improvement_percent": 183.11597076224922,
+          "p_value": 2.9755245664709213e-212,
+          "effect_size": 10.292068152235142,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "collision_count": {
+          "strategy_mean": 0.5,
+          "baseline_mean": 2.4833333333333334,
+          "improvement_percent": -79.86577181208054,
+          "p_value": 4.843274648737381e-30,
+          "effect_size": -1.6349982016909674,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "success_rate": {
+          "strategy_mean": 0.9205892743131484,
+          "baseline_mean": 0.6855684558428803,
+          "improvement_percent": 34.2811598852399,
+          "p_value": 2.6608045548789903e-114,
+          "effect_size": 4.651850196423549,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "agent_utilization": {
+          "strategy_mean": 0.7627727829171989,
+          "baseline_mean": 0.394120543633762,
+          "improvement_percent": 93.53794041906336,
+          "p_value": 5.07260970486275e-141,
+          "effect_size": 5.861636384904716,
+          "significant": "True",
+          "interpretation": "large effect"
+        }
+      },
+      "distributed": {
+        "task_completion_time": {
+          "strategy_mean": 31.551500670808895,
+          "baseline_mean": 37.91471463989356,
+          "improvement_percent": -16.782966796720505,
+          "p_value": 3.3963241526768114e-08,
+          "effect_size": -0.7305973102149805,
+          "significant": "True",
+          "interpretation": "medium effect"
+        },
+        "path_efficiency": {
+          "strategy_mean": 0.7755718508126612,
+          "baseline_mean": 0.2903382534982636,
+          "improvement_percent": 167.12699462363463,
+          "p_value": 7.003112155756412e-195,
+          "effect_size": 9.010620442584647,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "collision_count": {
+          "strategy_mean": 0.9,
+          "baseline_mean": 2.4833333333333334,
+          "improvement_percent": -63.75838926174497,
+          "p_value": 1.0714855128848705e-19,
+          "effect_size": -1.2537900999882108,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "success_rate": {
+          "strategy_mean": 0.8779626620348118,
+          "baseline_mean": 0.6855684558428803,
+          "improvement_percent": 28.063456617966786,
+          "p_value": 2.501091699720608e-92,
+          "effect_size": 3.78196000665818,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "agent_utilization": {
+          "strategy_mean": 0.7647248560568327,
+          "baseline_mean": 0.394120543633762,
+          "improvement_percent": 94.03323891876497,
+          "p_value": 6.487226999845788e-143,
+          "effect_size": 5.954879535581291,
+          "significant": "True",
+          "interpretation": "large effect"
+        }
+      }
+    },
+    "greedy": {
+      "centralized": {
+        "task_completion_time": {
+          "strategy_mean": 29.15414600680512,
+          "baseline_mean": 29.56103597992017,
+          "improvement_percent": -1.3764401673589393,
+          "p_value": 0.6206089485597723,
+          "effect_size": -0.06396520495151206,
+          "significant": "False",
+          "interpretation": "negligible effect"
+        },
+        "path_efficiency": {
+          "strategy_mean": 0.8219939648857689,
+          "baseline_mean": 0.5903382534982635,
+          "improvement_percent": 39.241182494060894,
+          "p_value": 2.9016307604395096e-110,
+          "effect_size": 4.48451190946945,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "collision_count": {
+          "strategy_mean": 0.5,
+          "baseline_mean": 0.8166666666666667,
+          "improvement_percent": -38.775510204081634,
+          "p_value": 0.0015607644057653574,
+          "effect_size": -0.4119210654624161,
+          "significant": "True",
+          "interpretation": "small effect"
+        },
+        "success_rate": {
+          "strategy_mean": 0.9205892743131484,
+          "baseline_mean": 0.8355130583430993,
+          "improvement_percent": 10.182511825579748,
+          "p_value": 1.925375783885901e-45,
+          "effect_size": 2.157568231431645,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "agent_utilization": {
+          "strategy_mean": 0.7627727829171989,
+          "baseline_mean": 0.7027741151230474,
+          "improvement_percent": 8.537404338468892,
+          "p_value": 6.422561767964452e-14,
+          "effect_size": 1.0134169675009115,
+          "significant": "True",
+          "interpretation": "large effect"
+        }
+      },
+      "distributed": {
+        "task_completion_time": {
+          "strategy_mean": 31.551500670808895,
+          "baseline_mean": 29.56103597992017,
+          "improvement_percent": 6.733406407815956,
+          "p_value": 0.03850190817302349,
+          "effect_size": 0.268281632536947,
+          "significant": "True",
+          "interpretation": "small effect"
+        },
+        "path_efficiency": {
+          "strategy_mean": 0.7755718508126612,
+          "baseline_mean": 0.5903382534982635,
+          "improvement_percent": 31.377535881628678,
+          "p_value": 5.1968686766468824e-83,
+          "effect_size": 3.439723975941352,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "collision_count": {
+          "strategy_mean": 0.9,
+          "baseline_mean": 0.8166666666666667,
+          "improvement_percent": 10.204081632653066,
+          "p_value": 0.4455654763796829,
+          "effect_size": 0.0986033968971634,
+          "significant": "False",
+          "interpretation": "negligible effect"
+        },
+        "success_rate": {
+          "strategy_mean": 0.8779626620348118,
+          "baseline_mean": 0.8355130583430993,
+          "improvement_percent": 5.080663104882407,
+          "p_value": 4.388025968555376e-15,
+          "effect_size": 1.0644757723896996,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "agent_utilization": {
+          "strategy_mean": 0.7647248560568327,
+          "baseline_mean": 0.7027741151230474,
+          "improvement_percent": 8.815171134033363,
+          "p_value": 5.912440164465773e-15,
+          "effect_size": 1.0588793172874356,
+          "significant": "True",
+          "interpretation": "large effect"
+        }
+      }
+    },
+    "single_agent": {
+      "centralized": {
+        "task_completion_time": {
+          "strategy_mean": 29.15414600680512,
+          "baseline_mean": 50.76839329986695,
+          "improvement_percent": -42.574219683092615,
+          "p_value": 2.318818222579307e-48,
+          "effect_size": -2.2546621498757604,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "path_efficiency": {
+          "strategy_mean": 0.8219939648857689,
+          "baseline_mean": 0.8677536901236976,
+          "improvement_percent": -5.2733541509233675,
+          "p_value": 4.902920406295374e-15,
+          "effect_size": -1.0623954898022503,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "collision_count": {
+          "strategy_mean": 0.5,
+          "baseline_mean": 0.0,
+          "improvement_percent": Infinity,
+          "p_value": 8.686496090709519e-24,
+          "effect_size": 1.4097872179871684,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "success_rate": {
+          "strategy_mean": 0.9205892743131484,
+          "baseline_mean": 0.9408307621087852,
+          "improvement_percent": -2.151448338090839,
+          "p_value": 2.4235720832813316e-10,
+          "effect_size": -0.8445813040928081,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "agent_utilization": {
+          "strategy_mean": 0.7627727829171989,
+          "baseline_mean": 0.2666666666666667,
+          "improvement_percent": 186.0397935939495,
+          "p_value": 2.3800420908116643e-170,
+          "effect_size": 7.438772188020591,
+          "significant": "True",
+          "interpretation": "large effect"
+        }
+      },
+      "distributed": {
+        "task_completion_time": {
+          "strategy_mean": 31.551500670808895,
+          "baseline_mean": 50.76839329986695,
+          "improvement_percent": -37.852079571540074,
+          "p_value": 1.2243995417014058e-36,
+          "effect_size": -1.8622736539260134,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "path_efficiency": {
+          "strategy_mean": 0.7755718508126612,
+          "baseline_mean": 0.8677536901236976,
+          "improvement_percent": -10.62304204063897,
+          "p_value": 2.932850978534487e-41,
+          "effect_size": -2.017949501246174,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "collision_count": {
+          "strategy_mean": 0.9,
+          "baseline_mean": 0.0,
+          "improvement_percent": Infinity,
+          "p_value": 6.562148848159077e-35,
+          "effect_size": 1.8034058687030845,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "success_rate": {
+          "strategy_mean": 0.8779626620348118,
+          "baseline_mean": 0.9408307621087852,
+          "improvement_percent": -6.682190103250922,
+          "p_value": 4.166955248367531e-57,
+          "effect_size": -2.545818720483881,
+          "significant": "True",
+          "interpretation": "large effect"
+        },
+        "agent_utilization": {
+          "strategy_mean": 0.7647248560568327,
+          "baseline_mean": 0.2666666666666667,
+          "improvement_percent": 186.7718210213122,
+          "p_value": 5.0538939453381094e-172,
+          "effect_size": 7.538027151382664,
+          "significant": "True",
+          "interpretation": "large effect"
+        }
+      }
+    }
+  },
+  "statistical_tests": {
+    "centralized_vs_distributed": {
+      "task_completion_time": {
+        "statistic": -1.7066399876427616,
+        "p_value": 0.08985358292481481,
+        "effect_size": -0.26984347534363723,
+        "significant": "False",
+        "interpretation": "small effect"
+      },
+      "path_efficiency": {
+        "statistic": 4.81044221168172,
+        "p_value": 3.4878444623528502e-06,
+        "effect_size": 0.7605976970766039,
+        "significant": "True",
+        "interpretation": "medium effect"
+      },
+      "collision_count": {
+        "statistic": -2.9125970329776254,
+        "p_value": 0.004103753269689638,
+        "effect_size": -0.4605220265228925,
+        "significant": "True",
+        "interpretation": "small effect"
+      },
+      "coordination_overhead": {
+        "statistic": -12.784107501421609,
+        "p_value": 3.801311945172485e-26,
+        "effect_size": -2.0213448778468277,
+        "significant": "True",
+        "interpretation": "large effect"
+      },
+      "success_rate": {
+        "statistic": 8.109515577132797,
+        "p_value": 1.3242634603895906e-13,
+        "effect_size": 1.2822269972177263,
+        "significant": "True",
+        "interpretation": "large effect"
+      },
+      "agent_utilization": {
+        "statistic": -0.1896849312846593,
+        "p_value": 0.8497994959010613,
+        "effect_size": -0.02999182103360262,
+        "significant": "False",
+        "interpretation": "negligible effect"
+      }
+    }
+  },
+  "effect_sizes": {},
+  "multiple_comparisons": {
+    "method": "bonferroni",
+    "original_p_values": [
+      0.08985358292481481,
+      3.4878444623528502e-06,
+      0.004103753269689638,
+      3.801311945172485e-26,
+      1.3242634603895906e-13,
+      0.8497994959010613
+    ],
+    "corrected_p_values": [
+      0.5391214975488888,
+      2.09270667741171e-05,
+      0.024622519618137828,
+      2.280787167103491e-25,
+      7.945580762337543e-13,
+      1.0
+    ],
+    "test_names": [
+      "{'task_completion_time': {'statistic': np.float64(-1.7066399876427616), 'p_value': np.float64(0.08985358292481481), 'effect_size': np.float64(-0.26984347534363723), 'significant': np.False_, 'interpretation': 'small effect'}, 'path_efficiency': {'statistic': np.float64(4.81044221168172), 'p_value': np.float64(3.4878444623528502e-06), 'effect_size': np.float64(0.7605976970766039), 'significant': np.True_, 'interpretation': 'medium effect'}, 'collision_count': {'statistic': np.float64(-2.9125970329776254), 'p_value': np.float64(0.004103753269689638), 'effect_size': np.float64(-0.4605220265228925), 'significant': np.True_, 'interpretation': 'small effect'}, 'coordination_overhead': {'statistic': np.float64(-12.784107501421609), 'p_value': np.float64(3.801311945172485e-26), 'effect_size': np.float64(-2.0213448778468277), 'significant': np.True_, 'interpretation': 'large effect'}, 'success_rate': {'statistic': np.float64(8.109515577132797), 'p_value': np.float64(1.3242634603895906e-13), 'effect_size': np.float64(1.2822269972177263), 'significant': np.True_, 'interpretation': 'large effect'}, 'agent_utilization': {'statistic': np.float64(-0.1896849312846593), 'p_value': np.float64(0.8497994959010613), 'effect_size': np.float64(-0.02999182103360262), 'significant': np.False_, 'interpretation': 'negligible effect'}}_task_completion_time",
+      "{'task_completion_time': {'statistic': np.float64(-1.7066399876427616), 'p_value': np.float64(0.08985358292481481), 'effect_size': np.float64(-0.26984347534363723), 'significant': np.False_, 'interpretation': 'small effect'}, 'path_efficiency': {'statistic': np.float64(4.81044221168172), 'p_value': np.float64(3.4878444623528502e-06), 'effect_size': np.float64(0.7605976970766039), 'significant': np.True_, 'interpretation': 'medium effect'}, 'collision_count': {'statistic': np.float64(-2.9125970329776254), 'p_value': np.float64(0.004103753269689638), 'effect_size': np.float64(-0.4605220265228925), 'significant': np.True_, 'interpretation': 'small effect'}, 'coordination_overhead': {'statistic': np.float64(-12.784107501421609), 'p_value': np.float64(3.801311945172485e-26), 'effect_size': np.float64(-2.0213448778468277), 'significant': np.True_, 'interpretation': 'large effect'}, 'success_rate': {'statistic': np.float64(8.109515577132797), 'p_value': np.float64(1.3242634603895906e-13), 'effect_size': np.float64(1.2822269972177263), 'significant': np.True_, 'interpretation': 'large effect'}, 'agent_utilization': {'statistic': np.float64(-0.1896849312846593), 'p_value': np.float64(0.8497994959010613), 'effect_size': np.float64(-0.02999182103360262), 'significant': np.False_, 'interpretation': 'negligible effect'}}_path_efficiency",
+      "{'task_completion_time': {'statistic': np.float64(-1.7066399876427616), 'p_value': np.float64(0.08985358292481481), 'effect_size': np.float64(-0.26984347534363723), 'significant': np.False_, 'interpretation': 'small effect'}, 'path_efficiency': {'statistic': np.float64(4.81044221168172), 'p_value': np.float64(3.4878444623528502e-06), 'effect_size': np.float64(0.7605976970766039), 'significant': np.True_, 'interpretation': 'medium effect'}, 'collision_count': {'statistic': np.float64(-2.9125970329776254), 'p_value': np.float64(0.004103753269689638), 'effect_size': np.float64(-0.4605220265228925), 'significant': np.True_, 'interpretation': 'small effect'}, 'coordination_overhead': {'statistic': np.float64(-12.784107501421609), 'p_value': np.float64(3.801311945172485e-26), 'effect_size': np.float64(-2.0213448778468277), 'significant': np.True_, 'interpretation': 'large effect'}, 'success_rate': {'statistic': np.float64(8.109515577132797), 'p_value': np.float64(1.3242634603895906e-13), 'effect_size': np.float64(1.2822269972177263), 'significant': np.True_, 'interpretation': 'large effect'}, 'agent_utilization': {'statistic': np.float64(-0.1896849312846593), 'p_value': np.float64(0.8497994959010613), 'effect_size': np.float64(-0.02999182103360262), 'significant': np.False_, 'interpretation': 'negligible effect'}}_collision_count",
+      "{'task_completion_time': {'statistic': np.float64(-1.7066399876427616), 'p_value': np.float64(0.08985358292481481), 'effect_size': np.float64(-0.26984347534363723), 'significant': np.False_, 'interpretation': 'small effect'}, 'path_efficiency': {'statistic': np.float64(4.81044221168172), 'p_value': np.float64(3.4878444623528502e-06), 'effect_size': np.float64(0.7605976970766039), 'significant': np.True_, 'interpretation': 'medium effect'}, 'collision_count': {'statistic': np.float64(-2.9125970329776254), 'p_value': np.float64(0.004103753269689638), 'effect_size': np.float64(-0.4605220265228925), 'significant': np.True_, 'interpretation': 'small effect'}, 'coordination_overhead': {'statistic': np.float64(-12.784107501421609), 'p_value': np.float64(3.801311945172485e-26), 'effect_size': np.float64(-2.0213448778468277), 'significant': np.True_, 'interpretation': 'large effect'}, 'success_rate': {'statistic': np.float64(8.109515577132797), 'p_value': np.float64(1.3242634603895906e-13), 'effect_size': np.float64(1.2822269972177263), 'significant': np.True_, 'interpretation': 'large effect'}, 'agent_utilization': {'statistic': np.float64(-0.1896849312846593), 'p_value': np.float64(0.8497994959010613), 'effect_size': np.float64(-0.02999182103360262), 'significant': np.False_, 'interpretation': 'negligible effect'}}_coordination_overhead",
+      "{'task_completion_time': {'statistic': np.float64(-1.7066399876427616), 'p_value': np.float64(0.08985358292481481), 'effect_size': np.float64(-0.26984347534363723), 'significant': np.False_, 'interpretation': 'small effect'}, 'path_efficiency': {'statistic': np.float64(4.81044221168172), 'p_value': np.float64(3.4878444623528502e-06), 'effect_size': np.float64(0.7605976970766039), 'significant': np.True_, 'interpretation': 'medium effect'}, 'collision_count': {'statistic': np.float64(-2.9125970329776254), 'p_value': np.float64(0.004103753269689638), 'effect_size': np.float64(-0.4605220265228925), 'significant': np.True_, 'interpretation': 'small effect'}, 'coordination_overhead': {'statistic': np.float64(-12.784107501421609), 'p_value': np.float64(3.801311945172485e-26), 'effect_size': np.float64(-2.0213448778468277), 'significant': np.True_, 'interpretation': 'large effect'}, 'success_rate': {'statistic': np.float64(8.109515577132797), 'p_value': np.float64(1.3242634603895906e-13), 'effect_size': np.float64(1.2822269972177263), 'significant': np.True_, 'interpretation': 'large effect'}, 'agent_utilization': {'statistic': np.float64(-0.1896849312846593), 'p_value': np.float64(0.8497994959010613), 'effect_size': np.float64(-0.02999182103360262), 'significant': np.False_, 'interpretation': 'negligible effect'}}_success_rate",
+      "{'task_completion_time': {'statistic': np.float64(-1.7066399876427616), 'p_value': np.float64(0.08985358292481481), 'effect_size': np.float64(-0.26984347534363723), 'significant': np.False_, 'interpretation': 'small effect'}, 'path_efficiency': {'statistic': np.float64(4.81044221168172), 'p_value': np.float64(3.4878444623528502e-06), 'effect_size': np.float64(0.7605976970766039), 'significant': np.True_, 'interpretation': 'medium effect'}, 'collision_count': {'statistic': np.float64(-2.9125970329776254), 'p_value': np.float64(0.004103753269689638), 'effect_size': np.float64(-0.4605220265228925), 'significant': np.True_, 'interpretation': 'small effect'}, 'coordination_overhead': {'statistic': np.float64(-12.784107501421609), 'p_value': np.float64(3.801311945172485e-26), 'effect_size': np.float64(-2.0213448778468277), 'significant': np.True_, 'interpretation': 'large effect'}, 'success_rate': {'statistic': np.float64(8.109515577132797), 'p_value': np.float64(1.3242634603895906e-13), 'effect_size': np.float64(1.2822269972177263), 'significant': np.True_, 'interpretation': 'large effect'}, 'agent_utilization': {'statistic': np.float64(-0.1896849312846593), 'p_value': np.float64(0.8497994959010613), 'effect_size': np.float64(-0.02999182103360262), 'significant': np.False_, 'interpretation': 'negligible effect'}}_agent_utilization"
+    ],
+    "significant_after_correction": [
+      "False",
+      "True",
+      "True",
+      "True",
+      "True",
+      false
+    ]
+  }
+}

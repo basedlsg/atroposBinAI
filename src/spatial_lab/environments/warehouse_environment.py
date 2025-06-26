@@ -25,6 +25,7 @@ from .warehouse_layout import WarehouseLayoutGenerator
 from .warehouse_tasks import WarehouseTaskGenerator, WarehouseTask
 from ..coordination.robot_fleet import RobotFleetSimulator
 from ..evaluation.spatial_metrics import SpatialMetricsCalculator
+from ..llm import create_llm_coordinator, TaskRequirements, LLMProvider
 
 logger = logging.getLogger(__name__)
 
@@ -80,6 +81,12 @@ class WarehouseSpatialEnvironmentConfig(BaseEnvConfig):
     communication_range: float = Field(default=10.0, description="Robot communication range in meters")
     max_coordination_delay: int = Field(default=5, description="Maximum coordination delay in steps")
     
+    # LLM parameters
+    llama_api_key: Optional[str] = Field(default=None, description="Llama API key for spatial reasoning")
+    gemini_api_key: Optional[str] = Field(default=None, description="Gemini API key for backup reasoning")
+    preferred_llm_provider: str = Field(default="llama", description="Preferred LLM provider: llama or gemini")
+    enable_multimodal: bool = Field(default=False, description="Enable multimodal spatial reasoning")
+    
     # Evaluation parameters
     collision_penalty: float = Field(default=-10.0, description="Penalty for robot collisions")
     efficiency_weight: float = Field(default=1.0, description="Weight for efficiency scoring")
@@ -118,6 +125,18 @@ class WarehouseSpatialEnvironment(BaseEnv):
         )
         
         self.metrics_calculator = SpatialMetricsCalculator()
+        
+        # Initialize LLM coordinator for spatial reasoning
+        self.llm_coordinator = None
+        if config.llama_api_key or config.gemini_api_key:
+            self.llm_coordinator = create_llm_coordinator(
+                llama_api_key=config.llama_api_key,
+                gemini_api_key=config.gemini_api_key,
+                preferred_provider=config.preferred_llm_provider
+            )
+            logger.info(f"Initialized LLM coordinator with provider: {config.preferred_llm_provider}")
+        else:
+            logger.warning("No LLM API keys provided - using fallback reasoning")
         
         # Environment state
         self.current_layout = None
@@ -263,30 +282,138 @@ class WarehouseSpatialEnvironment(BaseEnv):
         return observations
     
     async def get_robot_decisions(self, observations: Dict[str, Dict], task: WarehouseTask) -> Dict[str, Dict]:
-        """Get LLM-based decisions for each robot"""
+        """Get LLM-based decisions for each robot using real APIs"""
         
         decisions = {}
         
-        for robot_id, obs in observations.items():
-            # Create spatial reasoning prompt
-            prompt = self.create_spatial_reasoning_prompt(robot_id, obs, task)
-            
-            # Get LLM response through Atropos server
+        # If LLM coordinator is available, use real APIs
+        if self.llm_coordinator:
             try:
-                response = await self.server.get_completion(
-                    prompt=prompt,
-                    agent_id=robot_id,
-                    max_tokens=256
+                # Prepare robot decision requests for batch processing
+                robot_requests = []
+                
+                for robot_id, obs in observations.items():
+                    robot_state = obs["robot_state"]
+                    warehouse_context = obs["warehouse_context"]
+                    
+                    # Available actions for this robot
+                    available_actions = [action.value for action in RobotAction]
+                    
+                    # Create request for LLM coordinator
+                    request = {
+                        "robot_id": robot_id,
+                        "observation": obs,
+                        "task_description": task.description,
+                        "available_actions": available_actions,
+                        "nearby_robots": warehouse_context.get("nearby_robots", []),
+                        "warehouse_layout": {
+                            "shelves": warehouse_context.get("nearby_shelves", []),
+                            "dimensions": (self.config.warehouse_width, self.config.warehouse_height)
+                        }
+                    }
+                    robot_requests.append(request)
+                
+                # Get decisions from LLM coordinator with structured output
+                task_requirements = TaskRequirements(
+                    requires_structured_output=True,
+                    priority="normal",
+                    max_latency_ms=3000
                 )
                 
-                # Parse decision from response
-                decision = self.parse_robot_decision(response, robot_id, obs)
-                decisions[robot_id] = decision
+                # Process robot decisions concurrently
+                llm_responses = await self.llm_coordinator.batch_robot_decisions(
+                    robot_requests, 
+                    task_requirements
+                )
+                
+                # Parse LLM responses into decisions
+                for i, (response, provider_used) in enumerate(llm_responses):
+                    robot_id = robot_requests[i]["robot_id"]
+                    
+                    try:
+                        # Extract decision from LLM response
+                        if "completion_message" in response:
+                            content = response["completion_message"]["content"]
+                            if isinstance(content, dict) and "text" in content:
+                                decision_text = content["text"]
+                            else:
+                                decision_text = str(content)
+                            
+                            # Parse the JSON decision
+                            decision_data = json.loads(decision_text)
+                            
+                            # Validate and format decision
+                            action = decision_data.get("action", "wait")
+                            if action not in available_actions:
+                                action = "wait"
+                            
+                            decisions[robot_id] = {
+                                "robot_id": robot_id,
+                                "action": action,
+                                "parameters": decision_data.get("parameters", {}),
+                                "reasoning": decision_data.get("reasoning", "LLM decision"),
+                                "confidence": decision_data.get("confidence", 0.8),
+                                "coordination_intent": decision_data.get("coordination_intent", ""),
+                                "provider_used": provider_used.value if provider_used else "unknown",
+                                "timestamp": time.time()
+                            }
+                            
+                            logger.debug(f"Robot {robot_id} decision from {provider_used}: {action}")
+                            
+                        else:
+                            raise ValueError("Invalid LLM response format")
+                            
+                    except (json.JSONDecodeError, KeyError, ValueError) as e:
+                        logger.warning(f"Failed to parse LLM decision for robot {robot_id}: {e}")
+                        # Fallback decision
+                        decisions[robot_id] = {
+                            "robot_id": robot_id,
+                            "action": "wait",
+                            "parameters": {},
+                            "reasoning": f"LLM parsing error: {str(e)}",
+                            "confidence": 0.1,
+                            "timestamp": time.time()
+                        }
                 
             except Exception as e:
-                logger.warning(f"Failed to get decision for robot {robot_id}: {e}")
-                # Fallback to safe action
-                decisions[robot_id] = {"action": "wait", "reasoning": "LLM error, waiting"}
+                logger.error(f"LLM coordinator failed: {e}")
+                # Fallback to simple decisions for all robots
+                for robot_id in observations.keys():
+                    decisions[robot_id] = {
+                        "robot_id": robot_id,
+                        "action": "wait",
+                        "parameters": {},
+                        "reasoning": f"LLM coordinator error: {str(e)}",
+                        "confidence": 0.1,
+                        "timestamp": time.time()
+                    }
+        
+        else:
+            # Fallback to simple rule-based decisions when no LLM is available
+            logger.warning("No LLM coordinator available, using fallback decisions")
+            
+            for robot_id, obs in observations.items():
+                robot_state = obs["robot_state"]
+                
+                # Simple rule-based decision logic
+                if robot_state["battery_level"] < 0.2:
+                    action = "wait"  # Low battery
+                    reasoning = "Low battery, waiting for recharge"
+                elif robot_state["carrying_item"]:
+                    action = "move_to"  # Carrying item, move to delivery
+                    reasoning = "Carrying item, moving to delivery zone"
+                else:
+                    action = "move_to"  # Idle, move to nearest item
+                    reasoning = "Idle, moving to collect items"
+                
+                decisions[robot_id] = {
+                    "robot_id": robot_id,
+                    "action": action,
+                    "parameters": {},
+                    "reasoning": reasoning,
+                    "confidence": 0.5,
+                    "timestamp": time.time()
+                }
         
         return decisions
     

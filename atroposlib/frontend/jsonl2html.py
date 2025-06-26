@@ -163,7 +163,7 @@ def generate_html(input_path: str, output_path: str = None):
                     else:
                         print(
                             f"Warning: Skipping line {line_num}. "
-                            "Invalid format (missing "messages' or 'scores'): "
+                            "Invalid format (missing 'messages' or 'scores'): "
                             f"{line[:100]}...",
                             file=sys.stderr,
                         )
@@ -200,7 +200,7 @@ def generate_html(input_path: str, output_path: str = None):
         )
     except KeyError as e:
         print(
-            "Error: Template file "{TEMPLATE_FILE}' is missing a required placeholder: {{{e}}}",
+            f"Error: Template file '{TEMPLATE_FILE}' is missing a required placeholder: {{{e}}}",
             file=sys.stderr,
         )
         sys.exit(1)

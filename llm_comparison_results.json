@@ -1,0 +1,382 @@
+{
+  "total_tests": 24,
+  "providers_tested": [
+    "Gemini",
+    "OpenAI"
+  ],
+  "provider_metrics": {
+    "Gemini": {
+      "total_tests": 12,
+      "successful_tests": 12,
+      "success_rate": 1.0,
+      "average_response_time": 0.30822497606277466,
+      "median_response_time": 0.3142561912536621,
+      "min_response_time": 0.26262402534484863,
+      "max_response_time": 0.37523889541625977,
+      "average_improvement": 0.6528324400634063,
+      "median_improvement": 0.5463591550579414,
+      "total_cost": 8.82e-05,
+      "average_cost": 7.35e-06,
+      "model": "gemini-1.5-flash"
+    },
+    "OpenAI": {
+      "total_tests": 12,
+      "successful_tests": 12,
+      "success_rate": 1.0,
+      "average_response_time": 0.36823350191116333,
+      "median_response_time": 0.3272346258163452,
+      "min_response_time": 0.2815239429473877,
+      "max_response_time": 0.6323888301849365,
+      "average_improvement": 0.6618041574814976,
+      "median_improvement": 0.5714864297948381,
+      "total_cost": 0.000588,
+      "average_cost": 4.9000000000000005e-05,
+      "model": "gpt-3.5-turbo"
+    }
+  },
+  "best_performance": {
+    "provider": "Gemini",
+    "score": 2.1180387404116376,
+    "metrics": {
+      "total_tests": 12,
+      "successful_tests": 12,
+      "success_rate": 1.0,
+      "average_response_time": 0.30822497606277466,
+      "median_response_time": 0.3142561912536621,
+      "min_response_time": 0.26262402534484863,
+      "max_response_time": 0.37523889541625977,
+      "average_improvement": 0.6528324400634063,
+      "median_improvement": 0.5463591550579414,
+      "total_cost": 8.82e-05,
+      "average_cost": 7.35e-06,
+      "model": "gemini-1.5-flash"
+    }
+  },
+  "cost_analysis": {
+    "cheapest": [
+      "Gemini",
+      7.35e-06
+    ],
+    "most_expensive": [
+      "OpenAI",
+      4.9000000000000005e-05
+    ],
+    "cost_comparison": [
+      [
+        "Gemini",
+        7.35e-06
+      ],
+      [
+        "OpenAI",
+        4.9000000000000005e-05
+      ]
+    ]
+  },
+  "speed_analysis": {
+    "fastest": [
+      "Gemini",
+      0.30822497606277466
+    ],
+    "slowest": [
+      "OpenAI",
+      0.36823350191116333
+    ],
+    "speed_comparison": [
+      [
+        "Gemini",
+        0.30822497606277466
+      ],
+      [
+        "OpenAI",
+        0.36823350191116333
+      ]
+    ]
+  },
+  "accuracy_analysis": {
+    "most_accurate": [
+      "Gemini",
+      1.0
+    ],
+    "least_accurate": [
+      "OpenAI",
+      1.0
+    ],
+    "accuracy_comparison": [
+      [
+        "Gemini",
+        1.0
+      ],
+      [
+        "OpenAI",
+        1.0
+      ]
+    ]
+  },
+  "detailed_results": [
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "Simple Navigation",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3145153522491455,
+      "success": true,
+      "improvement": 0.5033622910113067,
+      "cost_estimate": 6.899999999999999e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "Simple Navigation",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.34197473526000977,
+      "success": true,
+      "improvement": 0.533514245814354,
+      "cost_estimate": 6.899999999999999e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "Simple Navigation",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.320145845413208,
+      "success": true,
+      "improvement": 0.5229414678327711,
+      "cost_estimate": 6.899999999999999e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "Obstacle Avoidance",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.33715295791625977,
+      "success": true,
+      "improvement": 0.9989564921426606,
+      "cost_estimate": 7.35e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "Obstacle Avoidance",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.37523889541625977,
+      "success": true,
+      "improvement": 0.9984686633354265,
+      "cost_estimate": 7.35e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "Obstacle Avoidance",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.26262402534484863,
+      "success": true,
+      "improvement": 0.9992842541934106,
+      "cost_estimate": 7.35e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "3D Pathfinding",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.27124595642089844,
+      "success": true,
+      "improvement": 0.5283279621478929,
+      "cost_estimate": 7.35e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "3D Pathfinding",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.2667231559753418,
+      "success": true,
+      "improvement": 0.5280067187207678,
+      "cost_estimate": 7.35e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "3D Pathfinding",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3336617946624756,
+      "success": true,
+      "improvement": 0.5385123763359925,
+      "cost_estimate": 7.35e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "Complex Environment",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.2902708053588867,
+      "success": true,
+      "improvement": 0.5542059337798904,
+      "cost_estimate": 7.8e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "Complex Environment",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.2711491584777832,
+      "success": true,
+      "improvement": 0.5663427269454253,
+      "cost_estimate": 7.8e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "Gemini",
+      "model": "gemini-1.5-flash",
+      "scenario": "Complex Environment",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3139970302581787,
+      "success": true,
+      "improvement": 0.5620661485009784,
+      "cost_estimate": 7.8e-06,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "Simple Navigation",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.38155198097229004,
+      "success": true,
+      "improvement": 0.542181305108814,
+      "cost_estimate": 4.6e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "Simple Navigation",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.300062894821167,
+      "success": true,
+      "improvement": 0.5196702806890565,
+      "cost_estimate": 4.6e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "Simple Navigation",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.6323888301849365,
+      "success": true,
+      "improvement": 0.4910488495237484,
+      "cost_estimate": 4.6e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "Obstacle Avoidance",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.2815239429473877,
+      "success": true,
+      "improvement": 0.9998329721466153,
+      "cost_estimate": 4.9000000000000005e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "Obstacle Avoidance",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3180079460144043,
+      "success": true,
+      "improvement": 0.9982967505309954,
+      "cost_estimate": 4.9000000000000005e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "Obstacle Avoidance",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3337380886077881,
+      "success": true,
+      "improvement": 0.9994484815548947,
+      "cost_estimate": 4.9000000000000005e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "3D Pathfinding",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3418741226196289,
+      "success": true,
+      "improvement": 0.5597671732763185,
+      "cost_estimate": 4.9000000000000005e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "3D Pathfinding",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.43264293670654297,
+      "success": true,
+      "improvement": 0.5812161906492879,
+      "cost_estimate": 4.9000000000000005e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "3D Pathfinding",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.4839353561401367,
+      "success": true,
+      "improvement": 0.5294592200035755,
+      "cost_estimate": 4.9000000000000005e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "Complex Environment",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.32073116302490234,
+      "success": true,
+      "improvement": 0.5725111615395448,
+      "cost_estimate": 5.2000000000000004e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "Complex Environment",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.3069038391113281,
+      "success": true,
+      "improvement": 0.5704616980501314,
+      "cost_estimate": 5.2000000000000004e-05,
+      "api_response": "MOVE_FORWARD"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-3.5-turbo",
+      "scenario": "Complex Environment",
+      "decision": "MOVE_FORWARD",
+      "response_time": 0.28544092178344727,
+      "success": true,
+      "improvement": 0.5777558067049888,
+      "cost_estimate": 5.2000000000000004e-05,
+      "api_response": "MOVE_FORWARD"
+    }
+  ],
+  "analysis_timestamp": "2025-06-25T19:21:44.560630"
+}

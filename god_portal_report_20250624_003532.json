@@ -1,0 +1,20 @@
+{
+  "simulation_results": {
+    "total_agents": 2500,
+    "simulation_steps": 15,
+    "successful_instances": 5,
+    "total_runtime_seconds": 805.7586922645569,
+    "avg_happiness": 0.5680036550986798,
+    "total_wealth": 1370756.2383765432,
+    "final_beliefs": {
+      "avg_cooperation": 0.6088626232916674,
+      "avg_innovation": 0.6510682448296413
+    }
+  },
+  "ai_analyses": {
+    "scientist": "Observer Analysis Failed: Exceeded 3 retries due to rate limiting.",
+    "sociologist": "Observer Analysis Failed: Exceeded 3 retries due to rate limiting.",
+    "futurist": "Observer Analysis Failed: Exceeded 3 retries due to rate limiting."
+  },
+  "report_generated_at": "2025-06-24T00:35:32.261917"
+}

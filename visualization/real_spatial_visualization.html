@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real Spatial Reasoning Visualization</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow: hidden;
+        }
+        
+        #container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        #visualization-panel {
+            flex: 0.7;
+            position: relative;
+        }
+        
+        #control-panel {
+            flex: 0.3;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        #status-bar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        
+        #visualizationContainer {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .metric-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #a8b2ff;
+        }
+        
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .metric-subtitle {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+        
+        .control-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .control-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .control-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        #agent-list {
+            max-height: 200px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .agent-item {
+            padding: 8px;
+            margin: 2px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .scenario-selector {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 5px 0;
+            width: 100%;
+        }
+        
+        .scenario-selector option {
+            background: #333;
+            color: white;
+        }
+        
+        h2 {
+            margin-top: 0;
+            color: #a8b2ff;
+            font-size: 18px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="visualization-panel">
+            <div id="status-bar">
+                <div>Status: <span id="status">Connecting...</span></div>
+                <div>Agents: <span id="agent-count">0</span></div>
+                <div>FPS: <span id="fps">0</span></div>
+            </div>
+            <div id="visualizationContainer"></div>
+        </div>
+        
+        <div id="control-panel">
+            <h2>🎯 Spatial Reasoning Control</h2>
+            
+            <div class="metric-card">
+                <div class="metric-title">Test Progress</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="metric-subtitle" id="progress-text">0 / 0 tests completed</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Average Spatial Understanding</div>
+                <div class="metric-value" id="avg-understanding">0.000</div>
+                <div class="metric-subtitle">Score from 0.0 to 1.0</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Path Efficiency</div>
+                <div class="metric-value" id="path-efficiency">0.000</div>
+                <div class="metric-subtitle">Optimal vs actual path ratio</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Obstacle Avoidance</div>
+                <div class="metric-value" id="obstacle-avoidance">0.000</div>
+                <div class="metric-subtitle">Successful avoidance rate</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Task Completion</div>
+                <div class="metric-value" id="task-completion">0.000</div>
+                <div class="metric-subtitle">Targets reached successfully</div>
+            </div>
+            
+            <h2>🎮 Controls</h2>
+            
+            <select class="scenario-selector" id="scenario-selector">
+                <option value="simple_navigation">Simple Navigation</option>
+                <option value="obstacle_avoidance">Obstacle Avoidance</option>
+                <option value="spatial_memory">Spatial Memory</option>
+            </select>
+            
+            <button class="control-button" id="start-test">🚀 Start Test</button>
+            <button class="control-button" id="pause-test">⏸️ Pause</button>
+            <button class="control-button" id="reset-test">🔄 Reset</button>
+            
+            <h2>🤖 Active Agents</h2>
+            <div id="agent-list">
+                <div class="agent-item">No agents active</div>
+            </div>
+            
+            <h2>📊 Real-time Stats</h2>
+            <div class="metric-card">
+                <div class="metric-title">Total Navigation Time</div>
+                <div class="metric-value" id="total-time">0.0s</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Total Collisions</div>
+                <div class="metric-value" id="total-collisions">0</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">API Response Time</div>
+                <div class="metric-value" id="avg-response-time">0.0s</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // Global variables
+        let scene, camera, renderer, controls;
+        const objectsInScene = new Map();
+        const websocketUrl = "ws://localhost:8765";
+        let socket;
+        let animationId;
+        let frameCount = 0;
+        let lastTime = performance.now();
+        let fps = 0;
+        
+        // Test state
+        let testRunning = false;
+        let testResults = [];
+        let currentScenario = 'simple_navigation';
+        let activeAgents = new Map();
+        
+        // DOM elements
+        const statusElement = document.getElementById('status');
+        const agentCountElement = document.getElementById('agent-count');
+        const fpsElement = document.getElementById('fps');
+        const visualizationContainer = document.getElementById('visualizationContainer');
+        
+        // Initialize Three.js scene
+        function init() {
+            // Scene
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x1a1a2e);
+            
+            // Camera
+            camera = new THREE.PerspectiveCamera(75, visualizationContainer.clientWidth / visualizationContainer.clientHeight, 0.1, 1000);
+            camera.position.set(10, 15, 10);
+            camera.lookAt(0, 0, 0);
+            
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(visualizationContainer.clientWidth, visualizationContainer.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            visualizationContainer.appendChild(renderer.domElement);
+            
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 20, 10);
+            directionalLight.castShadow = true;
+            directionalLight.shadow.mapSize.width = 2048;
+            directionalLight.shadow.mapSize.height = 2048;
+            directionalLight.shadow.camera.near = 0.5;
+            directionalLight.shadow.camera.far = 50;
+            directionalLight.shadow.camera.left = -20;
+            directionalLight.shadow.camera.right = 20;
+            directionalLight.shadow.camera.top = 20;
+            directionalLight.shadow.camera.bottom = -20;
+            scene.add(directionalLight);
+            
+            // Ground plane
+            const planeGeometry = new THREE.PlaneGeometry(40, 40);
+            const planeMaterial = new THREE.MeshStandardMaterial({ 
+                color: 0x2d3748, 
+                roughness: 0.8,
+                metalness: 0.1
+            });
+            const groundPlane = new THREE.Mesh(planeGeometry, planeMaterial);
+            groundPlane.rotation.x = -Math.PI / 2;
+            groundPlane.receiveShadow = true;
+            scene.add(groundPlane);
+            
+            // Grid helper
+            const gridHelper = new THREE.GridHelper(40, 40, 0x444444, 0x222222);
+            gridHelper.position.y = 0.01;
+            scene.add(gridHelper);
+            
+            // Controls
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.screenSpacePanning = false;
+            controls.minDistance = 5;
+            controls.maxDistance = 50;
+            controls.maxPolarAngle = Math.PI / 2 - 0.05;
+            
+            // Handle window resize
+            window.addEventListener('resize', onWindowResize, false);
+            
+            // Start animation loop
+            animate();
+            
+            // Connect to WebSocket
+            connectWebSocket();
+        }
+        
+        // WebSocket connection
+        function connectWebSocket() {
+            socket = new WebSocket(websocketUrl);
+            statusElement.textContent = "Connecting...";
+            
+            socket.onopen = () => {
+                statusElement.textContent = "Connected";
+                console.log("WebSocket connected");
+            };
+            
+            socket.onmessage = (event) => {
+                try {
+                    const message = JSON.parse(event.data);
+                    if (message.type === "scene_update" || message.type === "initial_scene") {
+                        updateScene(message.payload);
+                    } else if (message.type === "test_update") {
+                        updateTestMetrics(message.payload);
+                    } else if (message.type === "agent_update") {
+                        updateAgentList(message.payload);
+                    }
+                } catch (e) {
+                    console.error("Error processing message:", e);
+                }
+            };
+            
+            socket.onerror = (error) => {
+                statusElement.textContent = "Error";
+                console.error("WebSocket Error:", error);
+            };
+            
+            socket.onclose = () => {
+                statusElement.textContent = "Disconnected";
+                console.log("WebSocket disconnected");
+                setTimeout(connectWebSocket, 3000);
+            };
+        }
+        
+        // Update scene with new object states
+        function updateScene(objectStates) {
+            const receivedIds = new Set();
+            
+            objectStates.forEach(objState => {
+                receivedIds.add(objState.id);
+                let threeObject = objectsInScene.get(objState.id);
+                
+                if (!threeObject) {
+                    // Create new object
+                    let geometry;
+                    const scale = objState.scale || [1, 1, 1];
+                    
+                    if (objState.type === "cube") {
+                        geometry = new THREE.BoxGeometry(scale[0], scale[1], scale[2]);
+                    } else if (objState.type === "sphere") {
+                        geometry = new THREE.SphereGeometry(scale[0] / 2, 32, 16);
+                    } else {
+                        geometry = new THREE.BoxGeometry(1, 1, 1);
+                    }
+                    
+                    const color = new THREE.Color(...(objState.color_rgba ? objState.color_rgba.slice(0, 3) : [0.5, 0.5, 0.5]));
+                    const material = new THREE.MeshStandardMaterial({ 
+                        color: color, 
+                        roughness: 0.5, 
+                        metalness: 0.1 
+                    });
+                    
+                    threeObject = new THREE.Mesh(geometry, material);
+                    threeObject.name = objState.id;
+                    threeObject.castShadow = true;
+                    threeObject.receiveShadow = false;
+                    
+                    scene.add(threeObject);
+                    objectsInScene.set(objState.id, threeObject);
+                }
+                
+                // Update position and orientation
+                if (objState.position) {
+                    threeObject.position.set(...objState.position);
+                }
+                if (objState.orientation_quaternion) {
+                    threeObject.quaternion.set(...objState.orientation_quaternion);
+                }
+            });
+            
+            // Remove objects not in current state
+            objectsInScene.forEach((obj, id) => {
+                if (!receivedIds.has(id)) {
+                    scene.remove(obj);
+                    obj.geometry.dispose();
+                    obj.material.dispose();
+                    objectsInScene.delete(id);
+                }
+            });
+            
+            // Update agent count
+            const agentObjects = Array.from(objectsInScene.keys()).filter(id => id.startsWith('agent_'));
+            agentCountElement.textContent = agentObjects.length;
+        }
+        
+        // Update test metrics
+        function updateTestMetrics(metrics) {
+            document.getElementById('avg-understanding').textContent = metrics.spatial_understanding?.toFixed(3) || '0.000';
+            document.getElementById('path-efficiency').textContent = metrics.path_efficiency?.toFixed(3) || '0.000';
+            document.getElementById('obstacle-avoidance').textContent = metrics.obstacle_avoidance?.toFixed(3) || '0.000';
+            document.getElementById('task-completion').textContent = metrics.task_completion?.toFixed(3) || '0.000';
+            document.getElementById('total-time').textContent = `${metrics.total_time?.toFixed(1) || '0.0'}s`;
+            document.getElementById('total-collisions').textContent = metrics.total_collisions || '0';
+            document.getElementById('avg-response-time').textContent = `${metrics.avg_response_time?.toFixed(2) || '0.0'}s`;
+            
+            // Update progress
+            if (metrics.progress) {
+                const progressPercent = (metrics.progress.current / metrics.progress.total) * 100;
+                document.getElementById('progress-fill').style.width = `${progressPercent}%`;
+                document.getElementById('progress-text').textContent = 
+                    `${metrics.progress.current} / ${metrics.progress.total} tests completed`;
+            }
+        }
+        
+        // Update agent list
+        function updateAgentList(agents) {
+            const agentList = document.getElementById('agent-list');
+            agentList.innerHTML = '';
+            
+            if (agents.length === 0) {
+                agentList.innerHTML = '<div class="agent-item">No agents active</div>';
+                return;
+            }
+            
+            agents.forEach(agent => {
+                const agentItem = document.createElement('div');
+                agentItem.className = 'agent-item';
+                agentItem.innerHTML = `
+                    <strong>${agent.id}</strong><br>
+                    Position: (${agent.position[0].toFixed(1)}, ${agent.position[1].toFixed(1)})<br>
+                    Status: ${agent.status}
+                `;
+                agentList.appendChild(agentItem);
+            });
+        }
+        
+        // Animation loop
+        function animate() {
+            animationId = requestAnimationFrame(animate);
+            
+            // Calculate FPS
+            frameCount++;
+            const currentTime = performance.now();
+            if (currentTime - lastTime >= 1000) {
+                fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
+                fpsElement.textContent = fps;
+                frameCount = 0;
+                lastTime = currentTime;
+            }
+            
+            if (controls) {
+                controls.update();
+            }
+            
+            renderer.render(scene, camera);
+        }
+        
+        // Handle window resize
+        function onWindowResize() {
+            camera.aspect = visualizationContainer.clientWidth / visualizationContainer.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(visualizationContainer.clientWidth, visualizationContainer.clientHeight);
+        }
+        
+        // Control button handlers
+        document.getElementById('start-test').addEventListener('click', () => {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                const scenario = document.getElementById('scenario-selector').value;
+                socket.send(JSON.stringify({
+                    type: 'start_test',
+                    scenario: scenario
+                }));
+                testRunning = true;
+                document.getElementById('start-test').disabled = true;
+                document.getElementById('pause-test').disabled = false;
+            }
+        });
+        
+        document.getElementById('pause-test').addEventListener('click', () => {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({
+                    type: 'pause_test'
+                }));
+                testRunning = false;
+                document.getElementById('start-test').disabled = false;
+                document.getElementById('pause-test').disabled = true;
+            }
+        });
+        
+        document.getElementById('reset-test').addEventListener('click', () => {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({
+                    type: 'reset_test'
+                }));
+                testRunning = false;
+                document.getElementById('start-test').disabled = false;
+                document.getElementById('pause-test').disabled = true;
+                
+                // Reset metrics
+                updateTestMetrics({});
+            }
+        });
+        
+        // Initialize when page loads
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>
