@@ -93,18 +93,18 @@ class SimulationConfig:
 class FlameGPUSimulation:
     """
     Main FLAME GPU simulation engine for LLM Society Phase β
-
+    
     Coordinates all GPU kernels for social, economic, and cultural interactions
     while maintaining compatibility with the existing LLM agent system.
     """
-
+    
     def __init__(self, config: SimulationConfig):
         self.config = config
         self.model_description = pyflamegpu.ModelDescription("LLMSocietySimulation")
         self.simulation: Optional[pyflamegpu.CUDASimulation] = None
         self.step_count = 0
         self.loop = asyncio.get_event_loop()  # Store the loop
-
+        
         # Environment properties (can be set on model_description)
         env = self.model_description.Environment()
         env.newPropertyFloat("world_width", self.config.world_width)
@@ -124,7 +124,7 @@ class FlameGPUSimulation:
         # Performance tracking
         self.kernel_times = {}
         self.total_simulation_time = 0.0
-
+        
         # Initialize FLAME GPU model structure
         self._initialize_model_structure()  # Renamed from _initialize_model
         self._define_model_layers_and_functions()  # Define layers after basic model structure
@@ -326,16 +326,16 @@ class FlameGPUSimulation:
     def _initialize_model_structure(self):  # Renamed
         """Initialize FLAME GPU 2 model structure (agents, messages, functions)"""
         # self.model_description is used here (was self.model)
-
+        
         # Define agent type with all necessary properties
         agent = self.model_description.newAgent("SocietyAgent")
-
+        
         # Spatial properties
         agent.newVariableFloat("x")
         agent.newVariableFloat("y")
         agent.newVariableFloat("velocity_x")
         agent.newVariableFloat("velocity_y")
-
+        
         # Basic agent properties
         agent.newVariableInt("agent_id")  # Keep as int for GPU
         agent.newVariableInt("agent_type")  # AgentType enum
@@ -343,16 +343,16 @@ class FlameGPUSimulation:
         agent.newVariableFloat("energy")
         agent.newVariableFloat("happiness")
         agent.newVariableFloat("health")
-
+        
         # Employment status
         agent.newVariableInt("employed")  # 0 = unemployed, 1 = employed
-
+        
         # Social properties
         agent.newVariableInt("family_id")
         agent.newVariableInt("cultural_group")  # CulturalGroup enum
         agent.newVariableFloat("social_reputation")
         agent.newVariableInt("num_connections")
-
+        
         # Economic properties
         agent.newVariableFloat("wealth")
         agent.newVariableFloat("food_resources")
@@ -363,27 +363,27 @@ class FlameGPUSimulation:
         agent.newVariableFloat("tools_resources")
         agent.newVariableFloat("services_resources")
         agent.newVariableFloat("currency")
-
+        
         # Banking and finance
         agent.newVariableFloat("credit_score")
         agent.newVariableFloat("total_debt")
         agent.newVariableFloat("monthly_income")
-
+        
         # Cultural properties
         agent.newVariableFloat("cultural_affinity_harmonists")
         agent.newVariableFloat("cultural_affinity_builders")
         agent.newVariableFloat("cultural_affinity_guardians")
         agent.newVariableFloat("cultural_affinity_scholars")
         agent.newVariableFloat("cultural_affinity_wanderers")
-
+        
         # Message types for agent communication
         self._define_message_types()
-
+        
         # Agent functions (kernels) - these are now declarations for FLAME GPU
         self._define_agent_function_declarations()  # Renamed
-
+        
         logger.info("FLAME GPU agent and message structure defined.")
-
+    
     def _define_message_types(self):
         """Define message types for agent communication"""
         # Using self.model_description
@@ -393,7 +393,7 @@ class FlameGPUSimulation:
         social_msg.newVariableFloat("sender_y")
         social_msg.newVariableInt("cultural_group")  # Changed to Int
         social_msg.newVariableFloat("interaction_strength")
-
+        
         trade_msg = self.model_description.newMessageBruteForce("trade_offer")
         trade_msg.newVariableInt("trader_id")  # Changed to Int
         trade_msg.newVariableFloat("trader_x")
@@ -404,20 +404,20 @@ class FlameGPUSimulation:
         trade_msg.newVariableFloat("quantity")
         trade_msg.newVariableFloat("price")
         trade_msg.newVariableInt("is_buy_order")  # 0 for sell, 1 for buy
-
+        
         cultural_msg = self.model_description.newMessageBruteForce("cultural_influence")
         cultural_msg.newVariableInt("influencer_id")  # Changed to Int
         cultural_msg.newVariableFloat("influencer_x")
         cultural_msg.newVariableFloat("influencer_y")
         cultural_msg.newVariableInt("cultural_group")  # Changed to Int
         cultural_msg.newVariableFloat("influence_strength")
-
+        
         family_msg = self.model_description.newMessageBruteForce("family_interaction")
         family_msg.newVariableInt("family_member_id")  # Changed to Int
         family_msg.newVariableInt("family_id")  # Changed to Int
         family_msg.newVariableInt("interaction_type")  # e.g., 0=support, 1=conflict
         family_msg.newVariableFloat("value")
-
+    
     def _define_agent_function_declarations(self):  # Renamed
         """
         Declare agent functions for FLAME GPU.
@@ -425,7 +425,7 @@ class FlameGPUSimulation:
         will be associated with these function names later or by the FLAME GPU runtime.
         """
         # agent = self.model_description.getAgent("SocietyAgent") # Get agent description
-
+        
         # Example: agent.newRTCFunction("move_agent_kernel", self.move_agent_kernel_code) # If RTC
         # Or, if using Python agent functions, they are typically bound later or automatically discovered.
         # For now, we acknowledge that the *kernels* from agent_kernels.py need to be
@@ -436,10 +436,10 @@ class FlameGPUSimulation:
         # Layer 0: Movement
         # Layer 1: Social Output, Social Process
         # etc.
-
+        
         logger.info("Agent function declarations noted. Actual kernel bindings TBD.")
-
-    def _define_model_layers_and_functions(self):
+    
+    def _define_model_layers_and_functions(self): 
         # Agent functions must be defined on the agent description.
         # The actual implementation of these functions (kernel code) needs to be provided elsewhere,
         # typically as Python functions with @pyflamegpu.agent_function decorators or C++ code for RTC.
@@ -448,7 +448,7 @@ class FlameGPUSimulation:
 
         # Declare agent functions (these names must match the actual kernel function names)
         # Movement - Now uses a Python agent function
-        agent_desc.newAgentFunction("move_agent", move_agent_pyfgpu)
+        agent_desc.newAgentFunction("move_agent", move_agent_pyfgpu) 
         # Social - Now uses Python agent functions
         agent_desc.newAgentFunction("output_social_signal", output_social_signal_pyfgpu)
         agent_desc.newAgentFunction(
@@ -528,7 +528,7 @@ class FlameGPUSimulation:
     def get_performance_metrics(self) -> Dict:
         """
         Get detailed performance metrics for the simulation
-
+        
         Returns:
             Dict: Performance metrics and statistics
         """
@@ -538,7 +538,7 @@ class FlameGPUSimulation:
             "average_step_time": self.total_simulation_time / max(1, self.step_count),
             "kernel_performance": {},  # This will be harder to get directly per-kernel without FLAME GPU's own logging
         }
-
+        
         # Simplified timing, as detailed kernel times are harder to get without specific FLAME GPU calls
         if (
             "total_step_time" in self.kernel_times
@@ -565,23 +565,23 @@ class FlameGPUSimulation:
                     num_agents * self.step_count / self.total_simulation_time
                 )
                 metrics["agents_per_second"] = num_agents / metrics["average_step_time"]
-
+        
         return metrics
-
+    
     def shutdown(self):
         """Clean up GPU resources"""
         try:
             # if self.agent_data: # self.agent_data removed
             #     self.agent_data.clear()
-
+            
             # FLAME GPU CUDASimulation object does not have an explicit shutdown/cleanup in Python.
             # It's typically handled by its destructor when the object goes out of scope.
             self.simulation = None  # Allow GC to collect if no other refs
 
             logger.info("FLAME GPU simulation resources marked for cleanup.")
-
+            
         except Exception as e:
-            logger.error(f"Error during shutdown: {e}", exc_info=True)
+            logger.error(f"Error during shutdown: {e}", exc_info=True) 
 
 
 # Placeholder kernel code strings - these need to be actual C++ code or reference Python agent functions

@@ -1,5 +1,29 @@
 #!/usr/bin/env python3
 """
+Update LLM Integration with Groq Provider
+"""
+
+import os
+import shutil
+from pathlib import Path
+
+def main():
+    """Update the LLM integration with Groq support"""
+    
+    print("🔧 UPDATING LLM INTEGRATION WITH GROQ")
+    print("=" * 60)
+    
+    # Backup original if it exists
+    original_path = Path('llm_integration.py')
+    backup_path = Path('llm_integration_backup.py')
+    
+    if original_path.exists():
+        shutil.copy2(original_path, backup_path)
+        print(f"✅ Backed up original to {backup_path}")
+    
+    # Create the updated integration
+    updated_code = '''#!/usr/bin/env python3
+"""
 LLM Integration Module with Groq Support
 """
 
@@ -256,3 +280,21 @@ async def test_groq_integration():
 if __name__ == "__main__":
     import asyncio
     asyncio.run(test_groq_integration())
+'''
+    
+    # Write the updated file
+    with open('llm_integration.py', 'w') as f:
+        f.write(updated_code)
+    
+    print("✅ Created updated llm_integration.py with Groq support")
+    print("\n🎉 INTEGRATION UPDATE COMPLETE!")
+    print("✅ Groq provider added")
+    print("✅ FREE Llama models available")
+    print("✅ Ready for testing")
+    
+    print("\n🚀 NEXT STEPS:")
+    print("1. Test with: python llm_integration.py")
+    print("2. Integrate with simulation")
+
+if __name__ == "__main__":
+    main() 

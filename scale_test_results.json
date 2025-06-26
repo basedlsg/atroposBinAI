@@ -1,0 +1,529 @@
+{
+  "test_session": {
+    "start_time": "2025-06-23T17:42:17.702173",
+    "end_time": "2025-06-23T17:50:40.385687",
+    "total_tests": 10
+  },
+  "results": [
+    {
+      "timestamp": "2025-06-23T17:42:26.523651",
+      "test_config": {
+        "provider": "openai",
+        "model": "gpt-3.5-turbo",
+        "num_agents": 5,
+        "num_steps": 5,
+        "test_name": "OpenAI Small Scale"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 7.9971137046813965,
+        "total_requests": 25,
+        "successful_requests": 25,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 3.126127866028134,
+        "avg_response_time": 0.3035354518890381,
+        "median_response_time": 1.811981201171875e-05,
+        "min_response_time": 5.7220458984375e-06,
+        "max_response_time": 1.8373689651489258
+      },
+      "llm_stats": {
+        "provider": "openai",
+        "model": "gpt-3.5-turbo",
+        "total_requests": 25,
+        "cache_hits": 20,
+        "cache_rate": "80.0%",
+        "cached_responses": 5
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "As a virtual society agent, I am currently feeling quite exhausted with my energy level at {energy:.2f}. I think it would be best for me to rest and recover my energy so that I can be more productive and efficient in the future. By taking some time to rest, I will be able to replenish my energy and feel rejuvenated. This will ultimately benefit me in the long run as I will be able to work more effectively and possibly even socialize with others once I am feeling better. Resting is the best option for me right now.",
+          "response_time": 1.8344788551330566
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "As a virtual society agent, I am feeling quite drained at the moment with my energy levels running low. I think it would be best for me to take some time to rest and recharge in order to regain my energy. Once I feel more rejuvenated, I can then focus on other activities like socializing or working to improve my overall well-being in this virtual world. Resting seems like the most beneficial option for me right now.",
+          "response_time": 1.3325979709625244
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "I think I will choose to rest to recover my energy. I feel a bit exhausted at the moment, and I believe taking a break will help me recharge and be more productive in the long run. Plus, it will give me a chance to reflect on my current situation and plan my next steps accordingly.",
+          "response_time": 0.8258349895477295
+        }
+      ],
+      "success": true
+    },
+    {
+      "timestamp": "2025-06-23T17:43:03.508941",
+      "test_config": {
+        "provider": "gemini",
+        "model": "gemini-1.5-flash",
+        "num_agents": 5,
+        "num_steps": 5,
+        "test_name": "Gemini Small Scale"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 6.361359119415283,
+        "total_requests": 25,
+        "successful_requests": 25,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 3.929977781587329,
+        "avg_response_time": 0.23821495056152345,
+        "median_response_time": 2.2172927856445312e-05,
+        "min_response_time": 1.1920928955078125e-05,
+        "max_response_time": 1.5544397830963135
+      },
+      "llm_stats": {
+        "provider": "gemini",
+        "model": "gemini-1.5-flash",
+        "total_requests": 25,
+        "cache_hits": 20,
+        "cache_rate": "80.0%",
+        "cached_responses": 5
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "```text\nI'm a weary {agent_type}, my energy flickering at {energy:.2f}.  The hum of {len(nearby_agents)} others is almost overwhelming, but frankly, I'm too drained to socialize effectively. My happiness is a paltry {happiness:.2f}, and while my resources ({resources}) are adequate for now, I need a boost.  Therefore, I choose to **Rest**.  A little downtime is crucial for restoring my energy and improving my overall well-being before I can effectively engage in other activities.\n```",
+          "response_time": 1.5544397830963135
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "```text\nTo-do:  Work\n\nExplanation:  As a diligent {agent_type}, my current energy level of {energy:.2f} is acceptable for a productive task.  My happiness is at {happiness:.2f}, which is adequate, but I am focused on improving my resource levels, currently at {resources}.  Working will allow me to increase my resources, which in turn will increase my options for future happiness and opportunities.  There are {len(nearby_agents)} others around, but my priority now is self-sufficiency.  Socializing and trading can",
+          "response_time": 1.0735430717468262
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "```text\nI'm a weary {agent_type}, my energy at a paltry {energy:.2f}.  My happiness, while not terrible at {happiness:.2f}, could certainly use a boost.  I see {len(nearby_agents)} others nearby, which is encouraging, but my immediate priority is to replenish my energy.  I've got {resources} resources, enough to tide me over for now. Therefore, I choose to **Rest**.  A bit of downtime will allow me to be more productive and enjoy interactions later.\n```",
+          "response_time": 1.1479649543762207
+        }
+      ],
+      "success": true
+    },
+    {
+      "timestamp": "2025-06-23T17:44:18.903434",
+      "test_config": {
+        "provider": "openai",
+        "model": "gpt-3.5-turbo",
+        "num_agents": 15,
+        "num_steps": 10,
+        "test_name": "OpenAI Medium Scale"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 15.367648124694824,
+        "total_requests": 150,
+        "successful_requests": 150,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 9.760764873250816,
+        "avg_response_time": 0.09635259469350178,
+        "median_response_time": 1.5974044799804688e-05,
+        "min_response_time": 5.0067901611328125e-06,
+        "max_response_time": 2.208986759185791
+      },
+      "llm_stats": {
+        "provider": "openai",
+        "model": "gpt-3.5-turbo",
+        "total_requests": 150,
+        "cache_hits": 140,
+        "cache_rate": "93.3%",
+        "cached_responses": 10
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "I think I will choose to rest for now. My energy level is not at its peak, and I could use some time to recharge. Plus, taking a break will allow me to focus better when I decide to work or socialize later on. Resting is important for maintaining a balance in my virtual life.",
+          "response_time": 1.0925729274749756
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "As a virtual agent, I am currently feeling quite tired with my energy level at {energy:.2f}. I think it would be best for me to choose the action to rest in order to recover my energy. Once I am fully rested, I can then consider other actions such as working to earn resources or socializing to boost my happiness level. Resting seems like the most important priority for me at the moment to ensure that I am able to function effectively in this virtual society.",
+          "response_time": 1.6369738578796387
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "As a virtual {agent_type}, I think it would be best for me to rest in order to recover my energy. I am currently feeling a bit exhausted, and taking some time to rest will help me recharge and be more productive in the long run. Plus, by resting now, I can ensure that I have enough energy to engage in other activities later on. Resting is essential for maintaining a healthy balance in my virtual life.",
+          "response_time": 1.364427089691162
+        }
+      ],
+      "success": true
+    },
+    {
+      "timestamp": "2025-06-23T17:45:02.295297",
+      "test_config": {
+        "provider": "gemini",
+        "model": "gemini-1.5-flash",
+        "num_agents": 15,
+        "num_steps": 10,
+        "test_name": "Gemini Medium Scale"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 13.389375925064087,
+        "total_requests": 150,
+        "successful_requests": 150,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 11.202911983314266,
+        "avg_response_time": 0.0831880776087443,
+        "median_response_time": 8.106231689453125e-06,
+        "min_response_time": 4.76837158203125e-06,
+        "max_response_time": 1.5491697788238525
+      },
+      "llm_stats": {
+        "provider": "gemini",
+        "model": "gemini-1.5-flash",
+        "total_requests": 150,
+        "cache_hits": 140,
+        "cache_rate": "93.3%",
+        "cached_responses": 10
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "```text\nBeep boop.  Analysis complete.\n\nAs a diligent {agent_type}, designated Unit 734, my current parameters indicate a need for resource acquisition.  Energy levels are at {energy:.2f}, acceptable for continued operation. Happiness is at {happiness:.2f}, within acceptable parameters for optimal functionality.  However, my resource levels at {resources} are suboptimal for projected tasks.  The presence of {len(nearby_agents)} agents suggests a possibility of trade, but the risk of inefficient resource exchange outweighs the potential benefit given my current low resource",
+          "response_time": 1.5491697788238525
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "```\nMy shimmering carapace feels a little dull, my energy at {energy:.2f} is telling me I need a break.  I've been tirelessly weaving iridescent threads all day, and my happiness, while a respectable {happiness:.2f}, could use a boost.  There are {len(nearby_agents)} others around, a comforting hum of activity.  I think...\n\nI choose to **Socialize**.  A little chit-chat and some shared bioluminescent fungi will do wonders for my spirits and perhaps even lead to some beneficial resource trades later.  A",
+          "response_time": 1.260113000869751
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "```\nLet's assume the following values for the placeholders:\n\nagent_type = \"Trader\"\nenergy = 0.3\nhappiness = 0.6\nresources = {\"crystals\": 15, \"cloth\": 5}\nnearby_agents = [{\"resources\": {\"crystals\": 5, \"metal\": 10}}, {\"resources\": {\"cloth\": 8, \"food\": 12}}]\n\n```\n\nOh, my crystals are piling up!  My energy is a bit low (0.3), but I'm",
+          "response_time": 1.3312461376190186
+        }
+      ],
+      "success": true
+    },
+    {
+      "timestamp": "2025-06-23T17:46:22.140846",
+      "test_config": {
+        "provider": "openai",
+        "model": "gpt-3.5-turbo",
+        "num_agents": 25,
+        "num_steps": 15,
+        "test_name": "OpenAI Large Scale"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 19.821377992630005,
+        "total_requests": 375,
+        "successful_requests": 375,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 18.91896719488588,
+        "avg_response_time": 0.04906771532694499,
+        "median_response_time": 1.2874603271484375e-05,
+        "min_response_time": 4.76837158203125e-06,
+        "max_response_time": 2.0015878677368164
+      },
+      "llm_stats": {
+        "provider": "openai",
+        "model": "gpt-3.5-turbo",
+        "total_requests": 375,
+        "cache_hits": 362,
+        "cache_rate": "96.5%",
+        "cached_responses": 13
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "I think I will choose to rest for now. My energy levels are a bit low, and I could use some time to recharge. Once I feel more refreshed, I can consider other options like working or socializing. It's important to take care of myself before diving into other activities.",
+          "response_time": 1.693068027496338
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "I think I will choose to rest in order to recover my energy. I am feeling a bit exhausted at the moment and I know that by resting, I will be able to regain some of my energy and feel more refreshed. This will help me be more productive in the long run and take on other activities like working or socializing.",
+          "response_time": 1.2257511615753174
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "I think I will choose to work. By earning more resources, I can ensure my future stability and feel productive in contributing to the virtual society. This will also help me build a sense of accomplishment and purpose, which will ultimately boost my happiness. Plus, having more resources will give me more options for trading with others in the future. Time to get to work and make the most out of my current situation!",
+          "response_time": 1.609950065612793
+        }
+      ],
+      "success": true
+    },
+    {
+      "timestamp": "2025-06-23T17:47:08.288897",
+      "test_config": {
+        "provider": "gemini",
+        "model": "gemini-1.5-flash",
+        "num_agents": 25,
+        "num_steps": 15,
+        "test_name": "Gemini Large Scale"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 16.144495010375977,
+        "total_requests": 375,
+        "successful_requests": 375,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 23.22773179086677,
+        "avg_response_time": 0.03926211547851562,
+        "median_response_time": 1.4781951904296875e-05,
+        "min_response_time": 3.814697265625e-06,
+        "max_response_time": 1.498852252960205
+      },
+      "llm_stats": {
+        "provider": "gemini",
+        "model": "gemini-1.5-flash",
+        "total_requests": 375,
+        "cache_hits": 362,
+        "cache_rate": "96.5%",
+        "cached_responses": 13
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "My sensors indicate energy levels at {energy:.2f} and happiness at {happiness:.2f}.  As a {agent_type}, my primary directive is resource acquisition.  While I value social interaction, my current {resources} are rather meager.  There are {len(nearby_agents)} others nearby, which presents an opportunity.\n\nTherefore, I choose to **Trade**.  With my limited energy, working would be inefficient, and socializing without resources to offer feels unproductive. Resting is tempting, but the potential for resource gain through trade outweighs the need for immediate energy replen",
+          "response_time": 1.498852252960205
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "```text\nBeep boop.  Current status analysis complete.\n\nAs a diligent {agent_type}, with energy at {energy:.2f} and happiness a moderate {happiness:.2f}, my primary directive is resource acquisition.  While socialization is beneficial for long-term societal integration, my current resource level of {resources} indicates a need for immediate action.  There are {len(nearby_agents)} agents nearby, but with my energy level, the risk/reward of trading isn't favorable; I'd likely expend more energy haggling than I'd gain. Rest",
+          "response_time": 1.2603278160095215
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "```text\nAs a diligent {agent_type}, my current priority is to replenish my energy levels.  My energy is critically low at {energy:.2f}, making other activities unproductive.  Therefore, I choose to **Rest**.  I need to recharge before I can effectively work, socialize, or trade.  My happiness is at {happiness:.2f}, and while I'd like to socialize,  rest is paramount right now.\n```",
+          "response_time": 0.9075019359588623
+        }
+      ],
+      "success": true
+    },
+    {
+      "timestamp": "2025-06-23T17:48:29.480911",
+      "test_config": {
+        "provider": "openai",
+        "model": "gpt-3.5-turbo",
+        "num_agents": 50,
+        "num_steps": 10,
+        "test_name": "OpenAI Stress Test"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 21.164755821228027,
+        "total_requests": 500,
+        "successful_requests": 500,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 23.624179944401025,
+        "avg_response_time": 0.04050892448425293,
+        "median_response_time": 7.867813110351562e-06,
+        "min_response_time": 4.76837158203125e-06,
+        "max_response_time": 1.8472702503204346
+      },
+      "llm_stats": {
+        "provider": "openai",
+        "model": "gpt-3.5-turbo",
+        "total_requests": 500,
+        "cache_hits": 484,
+        "cache_rate": "96.8%",
+        "cached_responses": 16
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "As a virtual agent, I would choose to rest in order to recover my energy. My energy level is not at its peak, so taking a moment to recharge will help me be more productive and efficient in the long run. Resting will allow me to tackle tasks with a refreshed mindset and ultimately improve my overall well-being in this virtual society.",
+          "response_time": 1.4860937595367432
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "I think I will choose to work in order to earn more resources and feel productive. My energy level is decent, so I believe I can handle some tasks to gather more resources for myself. This way, I can also contribute to the society and feel a sense of accomplishment. Plus, having more resources will help me in the long run to trade or socialize with others. Time to get to work!",
+          "response_time": 1.1115117073059082
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "As a virtual {agent_type}, I would choose to rest in order to recover my energy. I am currently feeling a bit exhausted, and I know that resting will help me recharge and be more productive in the long run. Additionally, by taking care of my energy levels, I will be better equipped to handle any challenges or opportunities that may arise in the virtual society.",
+          "response_time": 1.1321091651916504
+        }
+      ],
+      "success": true
+    },
+    {
+      "timestamp": "2025-06-23T17:49:18.222506",
+      "test_config": {
+        "provider": "gemini",
+        "model": "gemini-1.5-flash",
+        "num_agents": 50,
+        "num_steps": 10,
+        "test_name": "Gemini Stress Test"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 18.738913774490356,
+        "total_requests": 500,
+        "successful_requests": 500,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 26.682443070988437,
+        "avg_response_time": 0.03565340948104859,
+        "median_response_time": 7.867813110351562e-06,
+        "min_response_time": 5.7220458984375e-06,
+        "max_response_time": 1.3805160522460938
+      },
+      "llm_stats": {
+        "provider": "gemini",
+        "model": "gemini-1.5-flash",
+        "total_requests": 500,
+        "cache_hits": 484,
+        "cache_rate": "96.8%",
+        "cached_responses": 16
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "```\nAs a diligent {agent_type}, my current priority is to replenish my energy levels.  My energy is quite low at {energy:.2f}, and I cannot effectively engage in work, socializing, or trading while feeling this depleted.  Therefore, I choose to **Rest**.  A short period of rest will allow me to regain my strength and then pursue more productive activities.\n```",
+          "response_time": 1.3805160522460938
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "```text\nI'm a {agent_type}, and I'm feeling rather depleted. My energy is only at {energy:.2f}, and frankly, my happiness is suffering at {happiness:.2f}.  While I have {resources} resources, and there are {len(nearby_agents)} agents nearby, the prospect of socializing right now feels overwhelming.  I need to recharge.  Therefore, I choose to **Rest**.  I'll find a quiet spot and replenish my energy before I consider tackling any other tasks.  A rested {agent_type} is",
+          "response_time": 1.1622059345245361
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "```text\nI'm a humble {agent_type}, and currently feeling rather depleted. My energy ({energy:.2f}) is quite low, and frankly, my happiness ({happiness:.2f}) isn't much better.  I see {len(nearby_agents)} others around, but honestly, I don't have the energy for socializing right now.  My resources ({resources}) are sufficient for the moment.\n\nTherefore, I choose to **Rest**. I need to replenish my energy before I can effectively work, socialize, or trade. A little downtime will do wonders",
+          "response_time": 1.165524959564209
+        }
+      ],
+      "success": true
+    },
+    {
+      "timestamp": "2025-06-23T17:49:52.116450",
+      "test_config": {
+        "provider": "llama",
+        "model": "llama3.1-70b-instruct",
+        "num_agents": 5,
+        "num_steps": 5,
+        "test_name": "Llama Small Scale"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 3.891902208328247,
+        "total_requests": 25,
+        "successful_requests": 25,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 6.423594083762619,
+        "avg_response_time": 0.13947041511535643,
+        "median_response_time": 0.11453700065612793,
+        "min_response_time": 0.04958701133728027,
+        "max_response_time": 0.5997860431671143
+      },
+      "llm_stats": {
+        "provider": "llama",
+        "model": "llama3.1-70b-instruct",
+        "total_requests": 25,
+        "cache_hits": 0,
+        "cache_rate": "0.0%",
+        "cached_responses": 0
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "Would you be interested in trading some items?",
+          "response_time": 0.5997860431671143
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "Would you be interested in trading some items?",
+          "response_time": 0.10690879821777344
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "Would you be interested in trading some items?",
+          "response_time": 0.11453700065612793
+        }
+      ],
+      "success": true
+    },
+    {
+      "timestamp": "2025-06-23T17:50:40.385615",
+      "test_config": {
+        "provider": "llama",
+        "model": "llama3.1-70b-instruct",
+        "num_agents": 15,
+        "num_steps": 10,
+        "test_name": "Llama Medium Scale"
+      },
+      "performance": {
+        "success": true,
+        "total_time": 18.26010298728943,
+        "total_requests": 150,
+        "successful_requests": 150,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "requests_per_second": 8.214630558459207,
+        "avg_response_time": 0.11563859780629476,
+        "median_response_time": 0.11115431785583496,
+        "min_response_time": 0.050341129302978516,
+        "max_response_time": 0.3224058151245117
+      },
+      "llm_stats": {
+        "provider": "llama",
+        "model": "llama3.1-70b-instruct",
+        "total_requests": 150,
+        "cache_hits": 0,
+        "cache_rate": "0.0%",
+        "cached_responses": 0
+      },
+      "sample_responses": [
+        {
+          "agent_id": "farmer_000",
+          "agent_type": "farmer",
+          "response": "Trading helps our community thrive.",
+          "response_time": 0.3224058151245117
+        },
+        {
+          "agent_id": "trader_001",
+          "agent_type": "trader",
+          "response": "I'm looking to exchange some materials.",
+          "response_time": 0.11492919921875
+        },
+        {
+          "agent_id": "craftsman_002",
+          "agent_type": "craftsman",
+          "response": "Let's discuss a mutually beneficial trade.",
+          "response_time": 0.1259160041809082
+        }
+      ],
+      "success": true
+    }
+  ]
+}

@@ -66,21 +66,21 @@ class Position:
     x: float
     y: float
     z: float = 0.0
-
+    
     def distance_to(self, other: "Position") -> float:
         """Calculate Euclidean distance to another position"""
         return np.sqrt(
             (self.x - other.x) ** 2 + (self.y - other.y) ** 2 + (self.z - other.z) ** 2
         )
-
+    
     def move_towards(self, target: "Position", speed: float) -> "Position":
         """Move towards target position with given speed"""
         direction = np.array([target.x - self.x, target.y - self.y, target.z - self.z])
         distance = np.linalg.norm(direction)
-
+        
         if distance <= speed:
             return Position(target.x, target.y, target.z)
-
+        
         direction = direction / distance * speed
         return Position(
             self.x + direction[0], self.y + direction[1], self.z + direction[2]
@@ -97,10 +97,10 @@ class Position:
 class LLMAgent(Agent):
     """
     LLM-driven agent for society simulation
-
+    
     Inherits from Mesa Agent for compatibility
     """
-
+    
     def __init__(
         self,
         model,
@@ -114,7 +114,7 @@ class LLMAgent(Agent):
         initial_employed_status: int = 0,  # 0 for unemployed, 1 for employed
     ):
         super().__init__(model)
-
+        
         # Core attributes
         self.unique_id = unique_id
         self.config = config
@@ -125,7 +125,7 @@ class LLMAgent(Agent):
         generated_persona, determined_agent_type = self._generate_random_persona()
         self.persona = persona or generated_persona
         self.agent_type: AgentType = determined_agent_type
-
+        
         # Spatial attributes
         self.position = position or Position(
             random.uniform(0, config.simulation.world_size[0]),
@@ -134,7 +134,7 @@ class LLMAgent(Agent):
         )
         self.target_position: Optional[Position] = None
         self.movement_speed = config.agents.movement_speed
-
+        
         # Behavioral attributes
         self.state = AgentState.IDLE
         self.energy = 1.0
@@ -168,11 +168,11 @@ class LLMAgent(Agent):
         self.credit_score: float = 700.0  # Default from FlameGPU initial state
         self.total_debt: float = 0.0
         self.monthly_income: float = 0.0
-
+        
         # Memory system
         self.memories: List[Memory] = []
         self.memory_size = config.agents.memory_size
-
+        
         # Resources and inventory
         self.resources: Dict[str, int] = {
             "food": 10,
@@ -182,7 +182,7 @@ class LLMAgent(Agent):
             "energy_item": 5,
         }
         self.inventory: List[str] = []
-
+        
         # LLM interaction
         self.last_llm_call = 0.0
         self.llm_cache: Dict[str, str] = {}
@@ -191,16 +191,16 @@ class LLMAgent(Agent):
         self.last_banking_statement: Optional[str] = (
             None  # For recent banking statement
         )
-
+        
         # Metrics
         self.step_count = 0
         self.social_interactions = 0
         self.objects_created = 0
-
+        
         logger.debug(
             f"Created agent {self.unique_id} (Type: {self.agent_type.name}, Age: {self.age:.1f}, Health: {self.health:.2f}, Employed: {self.employed}) persona: {self.persona[:50]}..."
         )
-
+    
     def _generate_random_persona(self) -> Tuple[str, AgentType]:
         traits = [
             "curious",
@@ -229,44 +229,44 @@ class LLMAgent(Agent):
             "leader": AgentType.LEADER,
         }
         profession_names = list(professions_map.keys())
-
+        
         trait = random.choice(traits)
         chosen_profession_name = random.choice(profession_names)
         determined_agent_type = professions_map.get(
             chosen_profession_name, AgentType.UNEMPLOYED
         )
-
+        
         persona_str = f"I am a {trait} {chosen_profession_name} who enjoys learning and creating new things."
         return persona_str, determined_agent_type
-
+    
     async def step(self):
         """Execute one simulation step"""
         self.step_count += 1
-
+        
         try:
             # Update internal state
             await self._update_state()
-
+            
             # Decide on action
             action = await self._decide_action()
-
+            
             # Execute action
             await self._execute_action(action)
-
+            
             # Update energy and happiness
             self._update_resources()
-
+            
             # Clean up old memories
             await self._manage_memory()
-
+            
         except Exception as e:
             logger.error(f"Error in agent {self.unique_id} step: {e}", exc_info=True)
-
+    
     async def _update_state(self):
         """Update agent's internal state based on environment"""
         # Get nearby agents
         nearby_agents = self._get_nearby_agents()
-
+        
         # Update social connections
         for agent in nearby_agents:
             if agent.unique_id not in self.social_connections:
@@ -276,18 +276,18 @@ class LLMAgent(Agent):
                 self.social_connections[agent.unique_id] = min(
                     1.0, self.social_connections[agent.unique_id] + 0.01
                 )
-
+        
         # Update happiness based on social connections
         social_factor = min(1.0, len(self.social_connections) * 0.1)
         self.happiness = 0.3 * self.happiness + 0.7 * social_factor
-
+    
     async def _decide_action(self) -> Dict[str, Any]:
         """Decide what action to take this step"""
         situation_env_summary = self._get_situation_summary()
-
+        
         # Create prompt for LLM, now awaiting it
         prompt = await self._create_decision_prompt(situation_env_summary)
-
+        
         try:
             response = await self.llm_coordinator.get_response(
                 agent_id=self.unique_id,
@@ -302,7 +302,7 @@ class LLMAgent(Agent):
             )
             action = self._fallback_decision()
         return action
-
+    
     async def _create_decision_prompt(self, situation_summary: str) -> str:
         """Create a prompt for the LLM to decide on action (now async)"""
         cultural_group_name = "Unknown"
@@ -435,17 +435,17 @@ Recent Memories:
 Respond with just the action and parameters, like "move_to 10 15" or "talk_to agent_123".
 """
         return prompt_context + active_info_section + prompt_actions
-
+    
     def _get_situation_summary(self) -> str:
         """Get a summary of the immediate environment (position, nearby entities)."""
         nearby_agents = self._get_nearby_agents()
         nearby_world_objects = self._get_nearby_objects()
-
+        
         summary_parts = []
         summary_parts.append(
             f"You are at position ({self.position.x:.1f}, {self.position.y:.1f}, {self.position.z:.1f})."
         )
-
+        
         if nearby_agents:
             agent_names = [a.unique_id for a in nearby_agents[:3]]
             summary_parts.append(f"Nearby agents: {', '.join(agent_names)}.")
@@ -470,7 +470,7 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
             summary_parts.append("You see no specific objects nearby.")
 
         return " ".join(summary_parts)
-
+    
     def _get_nearby_agents(self) -> List["LLMAgent"]:
         """Get agents within social radius"""
         nearby = []
@@ -480,9 +480,9 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
                 agent.unique_id != self.unique_id
                 and self.position.distance_to(agent.position) <= social_r
             ):
-                nearby.append(agent)
+                    nearby.append(agent)
         return nearby
-
+    
     def _get_nearby_objects(
         self,
     ) -> List[
@@ -493,7 +493,7 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
             interaction_r = getattr(self.config.agents, "interaction_radius", 5.0)
             return self.model.get_objects_near(self.position, interaction_r)
         return []
-
+    
     def _parse_llm_response(self, response: str) -> Dict[str, Any]:
         """Parse LLM response into action dictionary with enhanced validation."""
         parts = response.strip().split()
@@ -562,7 +562,7 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
                     try:
                         ResourceType(resource_str)
                         action["params"]["resource"] = resource_str
-                    except ValueError:
+                except ValueError:
                         valid_action = False
                         error_msg = (
                             f"Invalid resource_name for market_trade: {resource_str}."
@@ -662,25 +662,25 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
             return {"type": "rest", "params": {}}  # Default to rest
 
         return action
-
+    
     def _fallback_decision(self) -> Dict[str, Any]:
         """Simple rule-based decision when LLM fails"""
         if self.energy < 0.3:
             return {"type": "rest"}
-
+        
         if random.random() < 0.3:
             # Random movement
             x = random.uniform(0, self.config.simulation.world_size[0])
             y = random.uniform(0, self.config.simulation.world_size[1])
             return {"type": "move", "target": Position(x, y)}
-
+        
         nearby_agents = self._get_nearby_agents()
         if nearby_agents and random.random() < 0.5:
             target = random.choice(nearby_agents)
             return {"type": "talk", "target_id": target.unique_id}
-
+        
         return {"type": "rest"}
-
+    
     async def _execute_action(self, action: Dict[str, Any]):
         """Execute the decided action and log it as a simulation event."""
         action_type = action.get("type", "rest")
@@ -754,43 +754,43 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
             await self._execute_rest()  # Default to rest for unknown actions
 
         self.state = AgentState.IDLE  # Reset to idle after action, or specific state
-
+    
     async def _execute_move(self, target: Position):
         """Execute movement action"""
         self.target_position = target
         self.position = self.position.move_towards(target, self.movement_speed)
         self.energy -= 0.01  # Movement costs energy
-
+        
         await self._add_memory(
             f"Moved towards ({target.x:.1f}, {target.y:.1f})", importance=0.1
         )
-
+    
     async def _execute_talk(self, target_id: str):
         """Execute social interaction"""
         # Find target agent
         target_agent = next(
             (a for a in self.model.schedule.agents if a.unique_id == target_id), None
         )
-
+        
         if target_agent:
             distance = self.position.distance_to(target_agent.position)
             if distance <= getattr(self.config.agents, "social_radius", 10.0):
                 # Successful interaction
                 self.social_interactions += 1
                 self.happiness += 0.05
-
+                
                 # Generate conversation
                 conversation = await self._generate_conversation(target_agent)
                 await self._add_memory(
                     f"Talked with {target_id}: {conversation[:50]}...", importance=0.6
                 )
-
+                
                 # Update relationship
                 if target_id in self.social_connections:
                     self.social_connections[target_id] += 0.1
                 else:
                     self.social_connections[target_id] = 0.2
-
+    
     async def _execute_create(self, description: str):
         """Execute object creation with 3D asset generation"""
         self.objects_created += 1
@@ -809,14 +809,14 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
             )
             return
 
-        try:
-            # Determine complexity based on description
-            complexity = "simple"
+            try:
+                # Determine complexity based on description
+                complexity = "simple"
             if any(
                 word in description.lower()
                 for word in ["complex", "detailed", "intricate"]
             ):
-                complexity = "complex"
+                    complexity = "complex"
 
             # Call AssetManager to generate the asset
             created_asset = await self.model.asset_manager.create_asset_for_agent(
@@ -845,7 +845,7 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
                     logger.info(
                         f"Agent {self.unique_id} placed object {world_object.obj_id} in the world at {(self.position.x, self.position.y, self.position.z)}"
                     )
-                else:
+        else:
                     logger.warning(
                         f"Model does not have add_world_object method. Cannot place {created_asset.description} in world."
                     )
@@ -867,7 +867,7 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
                 f"Error during _execute_create for agent {self.unique_id}: {e}",
                 exc_info=True,
             )
-
+    
     async def _execute_gather(self):
         """Execute resource gathering"""
         # Simple resource gain
@@ -875,14 +875,14 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
         amount = random.randint(1, 3)
         self.resources[resource_type] += amount
         self.energy -= 0.05
-
+        
         await self._add_memory(f"Gathered {amount} {resource_type}", importance=0.3)
-
+    
     async def _execute_rest(self):
         """Execute rest action"""
         self.energy = min(1.0, self.energy + 0.2)
         self.state = AgentState.IDLE
-
+        
         await self._add_memory("Rested and recovered energy", importance=0.2)
 
     async def _execute_family_interaction_spouse(self, description: str):
@@ -1471,7 +1471,7 @@ Respond with just the action and parameters, like "move_to 10 15" or "talk_to ag
             self.last_banking_statement = "Error retrieving banking statement."
 
         self.energy -= 0.01  # Small energy cost for fetching statement
-
+    
     async def _generate_conversation(self, other_agent: "LLMAgent") -> str:
         """Generate conversation with another agent"""
         try:
@@ -1483,13 +1483,13 @@ Their recent activities: {await other_agent._format_recent_memories()}
 
 Generate a brief conversation (1-2 lines) between you two.
 """
-
+            
             response = await self.llm_coordinator.get_response(
                 agent_id=self.unique_id, prompt=prompt, max_tokens=100
             )
-
+            
             return response.strip()
-
+            
         except Exception as e:
             logger.warning(f"Conversation generation failed: {e}")
             return "Had a pleasant chat about daily activities."
@@ -1506,7 +1506,7 @@ Generate a brief conversation (1-2 lines) between you two.
             tags=tags or [],
         )
         self.memories.append(memory)
-
+        
         # Save to database
         if hasattr(self.model, "database_handler") and self.model.database_handler:
             try:
@@ -1525,26 +1525,26 @@ Generate a brief conversation (1-2 lines) between you two.
         if len(self.memories) > self.memory_size:
             self.memories.sort(key=lambda m: m.importance, reverse=True)
             self.memories = self.memories[: self.memory_size]
-
+    
     async def _format_recent_memories(self, count: int = 3) -> str:
         """Format recent memories for LLM context"""
         recent = sorted(self.memories, key=lambda m: m.timestamp, reverse=True)[:count]
         if not recent:
             return "No recent memories."
-
+        
         return "; ".join([m.content for m in recent])
-
+    
     def _update_resources(self):
         """Update energy and resource decay"""
         # Gradual energy decay
         self.energy = max(0.0, self.energy - 0.005)
-
+        
         # Resource consumption
         if self.step_count % 20 == 0:  # Every 20 steps
             self.resources["food"] = max(0, self.resources["food"] - 1)
             if self.resources["food"] == 0:
                 self.energy = max(0.0, self.energy - 0.1)  # Hunger effect
-
+    
     async def _manage_memory(self):
         """Clean up old or unimportant memories"""
         if len(self.memories) > self.memory_size * 1.2:
@@ -1553,7 +1553,7 @@ Generate a brief conversation (1-2 lines) between you two.
                 self.memories, key=lambda m: m.importance, reverse=True
             )
             self.memories = self.memories[: self.memory_size]
-
+    
     def get_status(self) -> Dict[str, Any]:
         """Get current agent status for monitoring"""
         return {
@@ -1568,7 +1568,7 @@ Generate a brief conversation (1-2 lines) between you two.
             "step_count": self.step_count,
             "social_interactions": self.social_interactions,
             "objects_created": self.objects_created,
-        }
+        } 
 
     def to_dict(self) -> Dict[str, Any]:
         """Serialize the agent's state to a dictionary."""
